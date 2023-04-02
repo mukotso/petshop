@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('name',255)->fulltext();
             $table->string('path',255);
             $table->string('size',255);
-            $table->string('type',255)->index();
+            $table->string('type',255);
             $table->timestamps();
         });
     }
