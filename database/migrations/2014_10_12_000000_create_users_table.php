@@ -13,14 +13,14 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('uuid',36);
+            $table->char('uuid',36);
             $table->string('first_name',255)->index();
             $table->string('last_name',255)->index();
             $table->boolean('is_admin')->default('false');
             $table->string('email',255)->unique()->index();
             $table->timestamp('email_verified_at');
             $table->string('password',255);
-            $table->string('avatar',36)->nullable();
+            $table->char('avatar',36)->nullable();
             $table->string('address',255);
             $table->string('phone_number',255);
             $table->boolean('is_marketing')->default('false');
