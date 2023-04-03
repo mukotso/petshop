@@ -16,29 +16,19 @@ class CategoriesSeeder extends Seeder
         $categories = [
          
             [
-                'title' => 'cats',
-                'slug' => 'cats '
+                'title' => 'family',
+                'slug' => 'family '
             ],
             [
-                'title' => 'dogs',
-                'slug' => 'dogs '
+                'title' => 'nutrition',
+                'slug' => 'nutrition '
             ],
             [
-                'title' => 'birds',
-                'slug' => 'birds '
+                'title' => 'dieting',
+                'slug' => 'dieting'
             ],
-            [
-                'title' => 'rabbits',
-                'slug' => 'rabbits '
-            ],
-            [
-                'title' => 'guinea pigs',
-                'slug' => 'guinea_pigs '
-            ],
-            [
-                'title' => 'fish',
-                'slug' => 'fish '
-            ],
+           
+            
         ];
 
         foreach ($categories as $category) {
