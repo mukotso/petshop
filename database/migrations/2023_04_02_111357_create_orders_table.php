@@ -19,9 +19,9 @@ return new class extends Migration
             $table->char('uuid',36);
             $table->json('products',255);
             $table->json('address',255);
-            $table->decimal('delivery_fee',8,2);
+            $table->decimal('delivery_fee',8,2)->nullable();
             $table->decimal('amount',12,2);
-            $table->timestamp('shipped_at');
+            $table->timestamp('shipped_at')->nullable();
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');
