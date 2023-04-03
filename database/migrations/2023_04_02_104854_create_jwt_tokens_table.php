@@ -13,14 +13,15 @@ return new class extends Migration
     {
         Schema::create('jwt_tokens', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInterger('user_id');
             $table->text('unique_id');
             $table->unsignedBigInterger('user_id');
             $table->string('token_title',255);
-            $table->json('restrictions',255);
-            $table->json('permissions',255);
-            $table->timestamp('expires_at');
-            $table->timestamp('last_used_at');
-            $table->timestamp('refreshed_at');
+            $table->json('restrictions',255)->nullable();
+            $table->json('permissions',255)->nullable();
+            $table->timestamp('expires_at')->nullable();
+            $table->timestamp('last_used_at')->nullable();
+            $table->timestamp('refreshed_at')->nullable();
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');

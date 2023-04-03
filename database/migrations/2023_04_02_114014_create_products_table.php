@@ -20,7 +20,7 @@ return new class extends Migration
             $table->text('description');
             $table->json('metadata');
             $table->timestamps();
-            $table->timestamp('deleted_at');
+            $table->timestamp('deleted_at')->nullable();
 
             $table->foreign('category_id')->references('id')->on('categories');
         });
