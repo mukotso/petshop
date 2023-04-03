@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Brand;
 
 class BrandsSeeder extends Seeder
 {
@@ -33,9 +34,9 @@ class BrandsSeeder extends Seeder
         ];
 
         foreach ($brands as $brand) {
-            //create  category if it does not exist in the database
-            if( !Brand::where('title', $category->title)->exists()){
-                Brand::create($category);
+            //create  brand if it does not exist in the database ( to avoid duplicates )
+            if( !Brand::where('title', $brand->title)->exists()){
+                Brand::create($brand);
             }
           
         }
