@@ -6,7 +6,7 @@ namespace App\Interfaces;
 interface FileInterface
 {
 
-    public function createFile($file_details);
+    public function createFile(array $file_details);
 
     public function showFileDetails($file_uuid);
 

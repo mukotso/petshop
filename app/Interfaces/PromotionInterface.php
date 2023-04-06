@@ -8,7 +8,7 @@ interface PromotionInterface
 
     public function getAllPromotions();
 
-    public function createPromotion($promotion_details);
+    public function createPromotion(array $promotion_details);
 
     public function showPromotionDetails($promotion_uuid);
 

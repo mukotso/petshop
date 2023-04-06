@@ -8,7 +8,7 @@ interface ProductInterface
 
     public function getAllProducts();
 
-    public function createProduct($product_details);
+    public function createProduct(array $product_details);
 
     public function showProductDetails($product_uuid);
 

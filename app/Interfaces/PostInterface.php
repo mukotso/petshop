@@ -8,7 +8,7 @@ interface PostInterface
 
     public function getAllPosts();
 
-    public function createPost($post_details);
+    public function createPost(array $post_details);
 
     public function showPostDetails($post_uuid);
 

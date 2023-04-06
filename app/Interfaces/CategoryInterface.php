@@ -8,7 +8,7 @@ interface CategoryInterface
 
     public function getAllCategories();
 
-    public function createCategory($category_details);
+    public function createCategory(array $category_details);
 
     public function showCategoryDetails($category_uuid);
 

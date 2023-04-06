@@ -8,7 +8,7 @@ interface BrandInterface
 
     public function getAllBrands();
 
-    public function createBrand($brand_details);
+    public function createBrand(array $brand_details);
 
     public function showBrandDetails($brand_uuid);
 

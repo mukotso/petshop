@@ -8,7 +8,7 @@ interface PaymentInterface
 
     public function getAllPayments();
 
-    public function createPayment($payment_details, $order_uuid);
+    public function createPayment(array $payment_details, $order_uuid);
 
 
 }

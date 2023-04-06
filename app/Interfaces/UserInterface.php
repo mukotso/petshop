@@ -8,7 +8,7 @@ interface UserInterface
 
     public function getAllUsers();
 
-    public function createUser($user_details);
+    public function createUser(array $user_details);
 
     public function showUserDetails($user_uuid);
 

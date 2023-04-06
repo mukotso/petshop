@@ -8,7 +8,7 @@ interface OrderStatusInterface
 
     public function getAllOrderStatuses();
 
-    public function createOrderStatus($order_status_details);
+    public function createOrderStatus(array $order_status_details);
 
     public function showOrderStatusDetails($order_status_uuid);
 
