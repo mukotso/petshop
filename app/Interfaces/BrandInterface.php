@@ -3,7 +3,7 @@
 namespace App\Interfaces;
 
 
-interface BrandInventoryInterface
+interface BrandInterface
 {
 
     public function getAllBrands();

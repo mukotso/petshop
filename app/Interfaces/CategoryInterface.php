@@ -3,7 +3,7 @@
 namespace App\Interfaces;
 
 
-interface CategoryInventoryInterface
+interface CategoryInterface
 {
 
     public function getAllCategories();
