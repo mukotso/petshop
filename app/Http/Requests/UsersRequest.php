@@ -4,14 +4,14 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UserLoginRequest extends FormRequest
+class UsersRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
     {
-        return true;
+        return false;
     }
 
     /**
@@ -22,17 +22,26 @@ class UserLoginRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'first_name' => 'required',
+            'last_name' => 'required',
             'email' => 'required|email',
-            'password' => 'required',
+            'address' => 'required',
+            'phone_number' => 'bail|required|numeric|min:10'
         ];
     }
 
     public function messages(): array
     {
         return [
+            'first_name.required' => 'First name is required',
+            'last_name.email' => 'Last name is required',
             'email.required' => 'Email address is required',
             'email.email' => 'Enter a valid email address e.g myemail@gmail.com',
-            'password.required' => 'Password is required',
+            'address.required' => 'address is required',
+            'phone_number.required' => 'Phone number  is required',
+            'phone_number.numeric' => 'Phone number  should only contain numeric values',
+            'phone_number.min' => 'Phone number  should have a minimum of 10 digits',
         ];
     }
+
 }
