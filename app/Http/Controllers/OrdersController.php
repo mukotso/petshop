@@ -2,11 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Interfaces\OrderInterface;
 use App\Models\Order;
 use Illuminate\Http\Request;
 
 class OrdersController extends Controller
 {
+
+    protected OrderInterface $orderRepository;
+
+    public function __construct(OrderInterface $orderRepository)
+    {
+        $this->orderRepository = $orderRepository;
+    }
     /**
      * Display a listing of the resource.
      */

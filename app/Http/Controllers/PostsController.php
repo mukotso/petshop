@@ -2,11 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Interfaces\PostInterface;
 use App\Models\Post;
 use Illuminate\Http\Request;
 
 class PostsController extends Controller
 {
+
+    protected PostInterface $postRepository;
+
+    public function __construct(PostInterface $postRepository)
+    {
+        $this->postRepository = $postRepository;
+    }
+
     /**
      * Display a listing of the resource.
      */

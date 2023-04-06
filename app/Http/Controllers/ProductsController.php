@@ -2,11 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Interfaces\ProductInterface;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
 class ProductsController extends Controller
 {
+
+    protected ProductInterface $productRepository;
+
+    public function __construct(ProductInterface $productRepository)
+    {
+        $this->productRepository = $productRepository;
+    }
+
     /**
      * Display a listing of the resource.
      */

@@ -2,11 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Interfaces\PaymentInterface;
 use App\Models\Payment;
 use Illuminate\Http\Request;
 
 class PaymentsController extends Controller
 {
+
+    protected PaymentInterface $categoryRepository;
+
+    public function __construct(PaymentInterface $paymentRepository)
+    {
+        $this->paymentRepository = $paymentRepository;
+    }
+
     /**
      * Display a listing of the resource.
      */

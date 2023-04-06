@@ -2,11 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Interfaces\UserInterface;
 use App\Models\User;
 use Illuminate\Http\Request;
 
 class UsersController extends Controller
 {
+
+    protected UserInterface $userRepository;
+
+    public function __construct(UserInterface $userRepository)
+    {
+        $this->userRepository = $userRepository;
+    }
+
     /**
      * Display a listing of the resource.
      */

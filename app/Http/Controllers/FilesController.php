@@ -2,11 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Interfaces\FileInterface;
 use App\Models\File;
 use Illuminate\Http\Request;
 
 class FilesController extends Controller
 {
+
+    protected FileInterface $fileRepository;
+
+    public function __construct(FileInterface $fileRepository)
+    {
+        $this->fileRepository = $fileRepository;
+    }
+
     /**
      * Display a listing of the resource.
      */

@@ -2,11 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Interfaces\PromotionInterface;
 use App\Models\Promotion;
 use Illuminate\Http\Request;
 
 class PromotionsController extends Controller
 {
+
+    protected PromotionInterface $promotionRepository;
+
+    public function __construct(PromotionInterface $promotionRepository)
+    {
+        $this->promotionRepository = $promotionRepository;
+    }
+
     /**
      * Display a listing of the resource.
      */

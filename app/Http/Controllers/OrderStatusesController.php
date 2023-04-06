@@ -2,11 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Interfaces\OrderStatusInterface;
 use App\Models\OrderStatus;
 use Illuminate\Http\Request;
 
 class OrderStatusesController extends Controller
 {
+
+    protected OrderStatusInterface $orderStatusRepository;
+
+    public function __construct(OrderStatusInterface $orderStatusRepository)
+    {
+        $this->orderStatusRepository = $orderStatusRepository;
+    }
+
     /**
      * Display a listing of the resource.
      */

@@ -2,11 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Interfaces\BrandInterface;
 use App\Models\Brand;
 use Illuminate\Http\Request;
 
 class BrandsController extends Controller
 {
+
+    protected BrandInterface $brandRepository;
+
+    public function __construct(BrandInterface $brandRepository)
+    {
+        $this->brandRepository = $brandRepository;
+    }
+
     /**
      * Display a listing of the resource.
      */
