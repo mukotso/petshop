@@ -23,8 +23,8 @@ class PromotionsRequest extends FormRequest
     {
         return [
             'title' => 'bail|required|unique:promotions|max:255',
-            'content'=>'required',
-            'metadata'=>'required'
+            'content' => 'required',
+            'metadata' => 'required'
         ];
     }
 

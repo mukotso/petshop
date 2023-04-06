@@ -12,7 +12,5 @@ interface OrderInterface
 
     public function getUserOrders($user_uuid);
 
-   
-
 
 }

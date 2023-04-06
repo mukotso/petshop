@@ -24,9 +24,9 @@ class ProductsRequest extends FormRequest
         return [
             'category_id' => 'bail|required|numeric',
             'title' => 'bail|required|max:255',
-            'description'=>'required',
-            'metadata'=>'required',
-            'price'=>'required'
+            'description' => 'required',
+            'metadata' => 'required',
+            'price' => 'required'
         ];
     }
 

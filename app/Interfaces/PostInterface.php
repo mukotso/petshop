@@ -15,7 +15,6 @@ interface PostInterface
     public function updatePostDetails($post_uuid);
 
     public function deletePost($post_uuid);
-   
 
 
 }

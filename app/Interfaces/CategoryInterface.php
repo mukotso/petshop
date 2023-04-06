@@ -15,7 +15,6 @@ interface CategoryInterface
     public function updateCategoryDetails($category_uuid);
 
     public function deleteCategory($category_uuid);
-   
 
 
 }

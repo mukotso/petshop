@@ -36,5 +36,5 @@ class BrandsRequest extends FormRequest
             'slug.unique' => 'Slug should be unique',
         ];
     }
-    
+
 }

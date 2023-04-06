@@ -27,7 +27,7 @@ class PostsRequest extends FormRequest
             'content' => 'required',
             'metadata' => 'required',
         ];
-    } 
+    }
 
     public function messages(): array
     {
@@ -36,8 +36,8 @@ class PostsRequest extends FormRequest
             'title.unique' => 'Title should be unique',
             'slug.required' => 'Slug is required',
             'slug.unique' => 'Slug should be unique',
-            'content.required'=>'Content is required',
-            'metadata.required'=>'Post metadata is required'
+            'content.required' => 'Content is required',
+            'metadata.required' => 'Post metadata is required'
         ];
     }
 

@@ -15,7 +15,6 @@ interface BrandInterface
     public function UpdateBrandDetails($brand_uuid);
 
     public function deleteBrand($brand_uuid);
-   
 
 
 }

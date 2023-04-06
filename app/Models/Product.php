@@ -9,5 +9,4 @@ use Illuminate\Database\Eloquent\Concerns\HasUuids;
 class Product extends Model
 {
     use HasFactory, HasUuids;
-    
 }

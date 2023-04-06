@@ -26,7 +26,7 @@ class CategoriesRequest extends FormRequest
             'slug' => 'bail|required|unique:categories',
         ];
     }
-    
+
     public function messages(): array
     {
         return [

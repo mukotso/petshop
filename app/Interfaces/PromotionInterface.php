@@ -15,7 +15,6 @@ interface PromotionInterface
     public function updatePromotionDetails($promotion_uuid);
 
     public function deletePromotion($promotion_uuid);
-   
 
 
 }

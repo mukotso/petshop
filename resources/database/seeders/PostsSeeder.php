@@ -1,8 +1,8 @@
 <?php
 
-namespace Database\Seeders;
+namespace resources\database\seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Database\Seeders\Posts;
 use Illuminate\Database\Seeder;
 
 class PostsSeeder extends Seeder

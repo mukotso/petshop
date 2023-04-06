@@ -13,17 +13,18 @@ use App\Http\Requests\UserRegistrationRequest;
 
 class ApiAuthController extends Controller
 {
-    
-public function login(UserLoginRequest $request)
-{
-    if (User::where('email', '=', $request->email)->exists()) {
-        $user = User::where('email', '=', $request->email)->first();
 
-        if (Hash::check($request->password, $user->password)) {
+    public function login(UserLoginRequest $request)
+    {
+        if (User::where('email', '=', $request->email)->exists()) {
+            $user = User::where('email', '=', $request->email)->first();
 
-            $host = parse_url($request->url(), PHP_URL_HOST);
-            $domain = explode('.', $host)[count(explode('.', $host))-2] . '.' . explode('.', $host)[count(explode('.', $host))-1];
-        
+            if (Hash::check($request->password, $user->password)) {
+                $host = parse_url($request->url(), PHP_URL_HOST);
+                $domain = explode('.', $host)[count(explode('.', $host)) - 2] . '.' . explode('.', $host)[count(
+                        explode('.', $host)
+                    ) - 1];
+
 
                 // Set the token payload
                 $payload = [
@@ -34,27 +35,27 @@ public function login(UserLoginRequest $request)
                 // Generate the token
                 $token = JWT::encode($payload, $private_key, 'RS256');
 
+                return response()->json([
+                    'success' => true,
+                    'message' => 'User Logged In Succesfully!',
+                    'data' => [
+                        'accessToken' => JWT::encode($payload, config('jwt.key'), 'RS256'),
+                    ],
+                ], 200);
+            }
+
             return response()->json([
                 'success' => true,
-                'message' => 'User Logged In Succesfully!',
-                'data' => [
-                    'accessToken' => JWT::encode($payload, config('jwt.key'),'RS256'),
-                ],
-            ], 200);
+                'message' => 'Wrong User Credential!',
+                'data' => null,
+            ], 400);
         }
 
         return response()->json([
-            'success' => true,
-            'message' => 'Wrong User Credential!',
+            'success' => false,
+            'message' => 'No User With That Email Address!',
             'data' => null,
-        ], 400);
+        ], 404);
     }
-
-    return response()->json([
-        'success' => false,
-        'message' => 'No User With That Email Address!',
-        'data' => null,
-    ], 404);
-}
 
 }

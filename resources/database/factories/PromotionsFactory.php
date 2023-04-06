@@ -1,13 +1,13 @@
 <?php
 
-namespace Database\Factories;
+namespace resources\database\factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Model>
  */
-class PostsFactory extends Factory
+class PromotionsFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -16,18 +16,16 @@ class PostsFactory extends Factory
      */
     public function definition(): array
     {
-        $title = fake()->sentence();
-        $slug = Str::slug($title);
-        
         return [
-            'title' => $title,
-            'slug' => $slug,
-            'content' => fake()->paragraph,
+
+            'text' => fake()->sentence(),
+            'content' => fake()->paragraph(),
             'metadata' => [
-                "author" => fake()->name(),
-            ]
-    
-           
+                "valid_from" => $startingDate,
+                "valid_to" => $endingDate
+            ],
+
+
         ];
     }
 }

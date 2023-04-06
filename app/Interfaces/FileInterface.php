@@ -13,6 +13,6 @@ interface FileInterface
     public function UpdateFileDetails($file_uuid);
 
     public function deleteFile($file_uuid);
-   
+
 
 }

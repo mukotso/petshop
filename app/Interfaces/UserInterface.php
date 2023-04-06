@@ -15,5 +15,5 @@ interface UserInterface
     public function UpdateUserDetails($user_uuid);
 
     public function deleteUser($user_uuid);
-   
+
 }

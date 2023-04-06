@@ -15,6 +15,6 @@ interface OrderStatusInterface
     public function updateOrderStatusDetails($order_status_uuid);
 
     public function deleteOrderStatus($order_status_uuid);
-   
+
 
 }

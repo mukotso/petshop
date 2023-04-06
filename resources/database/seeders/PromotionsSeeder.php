@@ -1,8 +1,8 @@
 <?php
 
-namespace Database\Seeders;
+namespace resources\database\seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Database\Seeders\Promotions;
 use Illuminate\Database\Seeder;
 
 class PromotionsSeeder extends Seeder

@@ -3,7 +3,7 @@
 namespace App\Interfaces;
 
 
-interface PostInterface
+interface ProductInterface
 {
 
     public function getAllProducts();
@@ -15,5 +15,5 @@ interface PostInterface
     public function updateProductDetails($product_uuid);
 
     public function deleteProduct($product_uuid);
-   
+
 }
