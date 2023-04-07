@@ -12,16 +12,16 @@ return new class extends Migration {
     {
         Schema::create('products', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInterger('category_id');
+            $table->char('uuid', 36)->primary();
+            $table->unsignedBigInterger('category_uuid');
             $table->string('title', 255)->fulltext();
-            $table->char('uuid', 36);
             $table->decimal('price', 12, 2);
             $table->text('description');
             $table->json('metadata');
             $table->timestamps();
             $table->timestamp('deleted_at')->nullable();
 
-            $table->foreign('category_id')->references('id')->on('categories');
+            $table->foreign('category_uuid')->references('uuid')->on('categories');
         });
     }
 

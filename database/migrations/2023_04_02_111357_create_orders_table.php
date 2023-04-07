@@ -12,10 +12,10 @@ return new class extends Migration {
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInterger('user_id');
-            $table->unsignedBigInterger('order_status_id');
-            $table->unsignedBigInterger('payment_id');
-            $table->char('uuid', 36);
+            $table->char('uuid', 36)->primary();
+            $table->unsignedBigInterger('user_uuid');
+            $table->unsignedBigInterger('order_status_uuid');
+            $table->unsignedBigInterger('payment_uuid');
             $table->json('products', 255);
             $table->json('address', 255);
             $table->decimal('delivery_fee', 8, 2)->nullable();
@@ -23,9 +23,9 @@ return new class extends Migration {
             $table->timestamp('shipped_at')->nullable();
             $table->timestamps();
 
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('order_status_id')->references('id')->on('order_statuses');
-            $table->foreign('payment_id')->references('id')->on('payments');
+            $table->foreign('user_uuid')->references('uuid')->on('users');
+            $table->foreign('order_status_uuid')->references('uuid')->on('order_statuses');
+            $table->foreign('payment_uuid')->references('uuid')->on('payments');
         });
     }
 
