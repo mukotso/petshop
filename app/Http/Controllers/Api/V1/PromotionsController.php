@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Api\V1;
 
-use App\Interfaces\PromotionInterface;
+use App\Interfaces\V1\PromotionInterface;
 use App\Models\Promotion;
 use Illuminate\Http\Request;
 

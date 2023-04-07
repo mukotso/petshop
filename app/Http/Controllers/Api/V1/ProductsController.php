@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Api\V1;
 
-use App\Interfaces\ProductInterface;
+use App\Interfaces\V1\ProductInterface;
 use App\Models\Product;
 use Illuminate\Http\Request;
 

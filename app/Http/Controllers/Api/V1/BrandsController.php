@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Api\V1;
 
-use App\Interfaces\BrandInterface;
+use App\Interfaces\V1\BrandInterface;
 use App\Models\Brand;
 use Illuminate\Http\Request;
 

@@ -1,9 +1,8 @@
 <?php
 
-namespace App\Repositories;
+namespace App\Repositories\V1;
 
-use App\Interfaces\PostInterface;
-use App\Models\Post;
+use App\Interfaces\V1\PostInterface;
 
 
 class PostRepository implements PostInterface

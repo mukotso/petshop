@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Api\V1;
 
-use App\Interfaces\OrderInterface;
+use App\Interfaces\V1\OrderInterface;
 use App\Models\Order;
 use Illuminate\Http\Request;
 

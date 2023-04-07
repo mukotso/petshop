@@ -1,10 +1,9 @@
 <?php
 
-namespace App\Repositories;
+namespace App\Repositories\V1;
 
 
-use App\Interfaces\FileInterface;
-use App\Models\File;
+use App\Interfaces\V1\FileInterface;
 
 
 class FileRepository implements FileInterface

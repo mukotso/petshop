@@ -1,9 +1,8 @@
 <?php
 
-namespace App\Repositories;
+namespace App\Repositories\V1;
 
-use App\Interfaces\PaymentInterface;
-use App\Models\Payment;
+use App\Interfaces\V1\PaymentInterface;
 
 
 class PaymentRepository implements PaymentInterface

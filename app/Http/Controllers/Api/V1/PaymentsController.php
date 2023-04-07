@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Api\V1;
 
-use App\Interfaces\PaymentInterface;
+use App\Interfaces\V1\PaymentInterface;
 use App\Models\Payment;
 use Illuminate\Http\Request;
 

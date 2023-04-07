@@ -1,9 +1,8 @@
 <?php
 
-namespace App\Repositories;
+namespace App\Repositories\V1;
 
-use App\Interfaces\BrandInterface;
-use App\Models\Brand;
+use App\Interfaces\V1\BrandInterface;
 
 
 class BrandRepository implements BrandInterface

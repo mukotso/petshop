@@ -1,10 +1,9 @@
 <?php
 
-namespace App\Repositories;
+namespace App\Repositories\V1;
 
 
-use App\Interfaces\OrderStatusInterface;
-use App\Models\OrderStatus;
+use App\Interfaces\V1\OrderStatusInterface;
 
 
 class OrderStatusRepository implements OrderStatusInterface

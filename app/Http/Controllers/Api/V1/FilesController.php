@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Api\V1;
 
-use App\Interfaces\FileInterface;
+use App\Interfaces\V1\FileInterface;
 use App\Models\File;
 use Illuminate\Http\Request;
 

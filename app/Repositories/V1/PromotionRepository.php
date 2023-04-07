@@ -1,10 +1,9 @@
 <?php
 
-namespace App\Repositories;
+namespace App\Repositories\V1;
 
 
-use App\Interfaces\PromotionInterface;
-use App\Models\Promotion;
+use App\Interfaces\V1\PromotionInterface;
 
 
 class PromotionRepository implements PromotionInterface
