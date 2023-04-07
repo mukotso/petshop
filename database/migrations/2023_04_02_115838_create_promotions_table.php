@@ -12,7 +12,7 @@ return new class extends Migration {
     {
         Schema::create('promotions', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->char('uuid', 36);
+            $table->char('uuid', 36)->primary();
             $table->string('title', 255)->fulltext();
             $table->text('content', 255);
             $table->json('metadata');

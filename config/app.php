@@ -41,7 +41,7 @@ return [
     |
     */
 
-    'debug' => (bool) env('APP_DEBUG', false),
+    'debug' => (bool)env('APP_DEBUG', false),
 
     /*
     |--------------------------------------------------------------------------
@@ -143,6 +143,14 @@ return [
         // 'store'  => 'redis',
     ],
 
+        /*
+    |-------------------------------------------
+    | Current API Version
+    |-------------------------------------------
+    */
+
+    'api_latest' => '1',
+
     /*
     |--------------------------------------------------------------------------
     | Autoloaded Service Providers
@@ -192,6 +200,7 @@ return [
         App\Providers\AppServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
         // App\Providers\BroadcastServiceProvider::class,
+        App\Providers\RepositoryServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 

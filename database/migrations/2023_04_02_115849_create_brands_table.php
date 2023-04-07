@@ -12,7 +12,7 @@ return new class extends Migration {
     {
         Schema::create('brands', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->char('uuid', 36);
+            $table->char('uuid', 36)->primary();
             $table->string('title', 255)->fulltext();
             $table->string('slug', 255)->fulltext();
             $table->timestamps();

@@ -12,7 +12,7 @@ return new class extends Migration {
     {
         Schema::create('users', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->char('uuid', 36);
+            $table->char('uuid', 36)->primary();
             $table->string('first_name', 255)->index();
             $table->string('last_name', 255)->index();
             $table->boolean('is_admin')->default(0);
