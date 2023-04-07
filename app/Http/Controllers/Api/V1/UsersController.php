@@ -1,19 +1,19 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api\V1;
 
-use App\Interfaces\ProductInterface;
-use App\Models\Product;
+use App\Interfaces\UserInterface;
+use App\Models\User;
 use Illuminate\Http\Request;
 
-class ProductsController extends Controller
+class UsersController extends Controller
 {
 
-    protected ProductInterface $productRepository;
+    protected UserInterface $userRepository;
 
-    public function __construct(ProductInterface $productRepository)
+    public function __construct(UserInterface $userRepository)
     {
-        $this->productRepository = $productRepository;
+        $this->userRepository = $userRepository;
     }
 
     /**
@@ -43,7 +43,7 @@ class ProductsController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Product $product)
+    public function show(User $user)
     {
         //
     }
@@ -51,7 +51,7 @@ class ProductsController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Product $product)
+    public function edit(User $user)
     {
         //
     }
@@ -59,7 +59,7 @@ class ProductsController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Product $product)
+    public function update(Request $request, User $user)
     {
         //
     }
@@ -67,7 +67,7 @@ class ProductsController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Product $product)
+    public function destroy(User $user)
     {
         //
     }

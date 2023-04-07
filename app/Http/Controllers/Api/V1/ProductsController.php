@@ -1,19 +1,19 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api\V1;
 
-use App\Interfaces\FileInterface;
-use App\Models\File;
+use App\Interfaces\ProductInterface;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
-class FilesController extends Controller
+class ProductsController extends Controller
 {
 
-    protected FileInterface $fileRepository;
+    protected ProductInterface $productRepository;
 
-    public function __construct(FileInterface $fileRepository)
+    public function __construct(ProductInterface $productRepository)
     {
-        $this->fileRepository = $fileRepository;
+        $this->productRepository = $productRepository;
     }
 
     /**
@@ -43,7 +43,7 @@ class FilesController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(File $file)
+    public function show(Product $product)
     {
         //
     }
@@ -51,7 +51,7 @@ class FilesController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(File $file)
+    public function edit(Product $product)
     {
         //
     }
@@ -59,7 +59,7 @@ class FilesController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, File $file)
+    public function update(Request $request, Product $product)
     {
         //
     }
@@ -67,7 +67,7 @@ class FilesController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(File $file)
+    public function destroy(Product $product)
     {
         //
     }

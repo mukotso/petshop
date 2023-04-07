@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api\V1;
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\UserLoginRequest;
+use App\Http\Requests\UserRegistrationRequest;
 use App\Models\User;
 use Firebase\JWT\JWT;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Auth;
-use App\Http\Requests\UserRegistrationRequest;
+
+use function App\Http\Controllers\config;
+use function App\Http\Controllers\response;
 
 class ApiAuthController extends Controller
 {

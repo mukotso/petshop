@@ -1,20 +1,21 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api\V1;
 
-use App\Interfaces\OrderInterface;
-use App\Models\Order;
+use App\Interfaces\FileInterface;
+use App\Models\File;
 use Illuminate\Http\Request;
 
-class OrdersController extends Controller
+class FilesController extends Controller
 {
 
-    protected OrderInterface $orderRepository;
+    protected FileInterface $fileRepository;
 
-    public function __construct(OrderInterface $orderRepository)
+    public function __construct(FileInterface $fileRepository)
     {
-        $this->orderRepository = $orderRepository;
+        $this->fileRepository = $fileRepository;
     }
+
     /**
      * Display a listing of the resource.
      */
@@ -42,7 +43,7 @@ class OrdersController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Order $order)
+    public function show(File $file)
     {
         //
     }
@@ -50,7 +51,7 @@ class OrdersController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Order $order)
+    public function edit(File $file)
     {
         //
     }
@@ -58,7 +59,7 @@ class OrdersController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Order $order)
+    public function update(Request $request, File $file)
     {
         //
     }
@@ -66,7 +67,7 @@ class OrdersController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Order $order)
+    public function destroy(File $file)
     {
         //
     }

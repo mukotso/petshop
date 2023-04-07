@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api\V1;
 
 use App\Interfaces\OrderStatusInterface;
 use App\Models\OrderStatus;

@@ -1,19 +1,19 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api\V1;
 
-use App\Interfaces\PromotionInterface;
-use App\Models\Promotion;
+use App\Interfaces\PostInterface;
+use App\Models\Post;
 use Illuminate\Http\Request;
 
-class PromotionsController extends Controller
+class PostsController extends Controller
 {
 
-    protected PromotionInterface $promotionRepository;
+    protected PostInterface $postRepository;
 
-    public function __construct(PromotionInterface $promotionRepository)
+    public function __construct(PostInterface $postRepository)
     {
-        $this->promotionRepository = $promotionRepository;
+        $this->postRepository = $postRepository;
     }
 
     /**
@@ -43,7 +43,7 @@ class PromotionsController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Promotion $promotion)
+    public function show(Post $post)
     {
         //
     }
@@ -51,7 +51,7 @@ class PromotionsController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Promotion $promotion)
+    public function edit(Post $post)
     {
         //
     }
@@ -59,7 +59,7 @@ class PromotionsController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Promotion $promotion)
+    public function update(Request $request, Post $post)
     {
         //
     }
@@ -67,7 +67,7 @@ class PromotionsController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Promotion $promotion)
+    public function destroy(Post $post)
     {
         //
     }

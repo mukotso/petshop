@@ -1,21 +1,20 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api\V1;
 
-use App\Interfaces\PostInterface;
-use App\Models\Post;
+use App\Interfaces\OrderInterface;
+use App\Models\Order;
 use Illuminate\Http\Request;
 
-class PostsController extends Controller
+class OrdersController extends Controller
 {
 
-    protected PostInterface $postRepository;
+    protected OrderInterface $orderRepository;
 
-    public function __construct(PostInterface $postRepository)
+    public function __construct(OrderInterface $orderRepository)
     {
-        $this->postRepository = $postRepository;
+        $this->orderRepository = $orderRepository;
     }
-
     /**
      * Display a listing of the resource.
      */
@@ -43,7 +42,7 @@ class PostsController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Post $post)
+    public function show(Order $order)
     {
         //
     }
@@ -51,7 +50,7 @@ class PostsController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Post $post)
+    public function edit(Order $order)
     {
         //
     }
@@ -59,7 +58,7 @@ class PostsController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Post $post)
+    public function update(Request $request, Order $order)
     {
         //
     }
@@ -67,7 +66,7 @@ class PostsController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Post $post)
+    public function destroy(Order $order)
     {
         //
     }
