@@ -12,7 +12,7 @@ return new class extends Migration {
     {
         Schema::create('products', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->char('uuid', 36)->primary();
+            $table->char('uuid', 36)->unique()->primary();
             $table->unsignedBigInterger('category_uuid');
             $table->string('title', 255)->fulltext();
             $table->decimal('price', 12, 2);

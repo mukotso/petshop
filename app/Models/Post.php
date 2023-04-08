@@ -9,4 +9,12 @@ use Illuminate\Database\Eloquent\Concerns\HasUuids;
 class Post extends Model
 {
     use HasFactory, HasUuids;
+
+    protected  $fillable = ['uuid','title','slug','content','metadata'];
+
+    protected $casts = [
+        'created_at' => 'datetime:d/m/Y h:i a',
+        'updated_at' => 'datetime:d/m/Y h:i a',
+        'metadata' =>  'array',
+        ];
 }

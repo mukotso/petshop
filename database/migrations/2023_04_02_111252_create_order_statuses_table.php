@@ -12,7 +12,7 @@ return new class extends Migration {
     {
         Schema::create('order_statuses', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->char('uuid', 36)->primary();
+            $table->char('uuid', 36)->unique()->primary();
             $table->string('title', 255)->index();
             $table->timestamps();
         });

@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Api\V1;
 
+use App\Http\Resources\V1\PostResource;
 use App\Interfaces\V1\PostInterface;
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class PostsController extends Controller
 {
@@ -21,54 +23,55 @@ class PostsController extends Controller
      */
     public function index()
     {
-        //
+        try {
+            $posts = $this->postRepository->getAllPosts();
+            return response(
+                [
+                    'posts' => PostResource::collection($posts),
+                    'message' => 'Blogs Retrieved successfully'
+                ]
+                , 200
+            );
+        } catch (\Exception $e) {
+            //log exception
+            Log::error($e);
+            return response(
+                [
+                    [],
+                    'message' => 'An error occurred ,Please try again'
+                ]
+                , 500
+            );
+        }
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
 
     /**
      * Display the specified resource.
      */
-    public function show(Post $post)
+    public function show($post_uuid)
     {
-        //
+        try {
+            $post = $this->postRepository->showPostDetails($post_uuid);
+            return response(
+                [
+                    'post' => new PostResource($post),
+                    'message' => 'Blogs Retrieved successfully'
+                ]
+                , 200
+            );
+        }catch (\Exception $e) {
+                //log exception
+                Log::error($e);
+                return response(
+                    [
+                        [],
+                        'message' => 'An error occurred ,Please try again'
+                    ]
+                    , 500
+                );
+            }
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Post $post)
-    {
-        //
-    }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Post $post)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Post $post)
-    {
-        //
-    }
 }

@@ -12,7 +12,7 @@ return new class extends Migration {
     {
         Schema::create('files', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->char('uuid', 36)->primary();
+            $table->char('uuid', 36)->unique()->primary();
             $table->string('name', 255)->fulltext();
             $table->string('path', 255);
             $table->string('size', 255);
