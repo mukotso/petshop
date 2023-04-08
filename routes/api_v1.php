@@ -51,7 +51,8 @@ Route::middleware('auth', 'has_user_access')->group(function () {
 
 //main page Routes
     Route::prefix('main')->group(function () {
-        Route::resource('blog', PostsController::class);
+        Route::get('blog', [PostsController::class,'index']);
+        Route::get('blog/{uuid}', [PostsController::class,'show']);
         Route::resource('promotions', PromotionsController::class);
     });
 

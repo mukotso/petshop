@@ -12,7 +12,7 @@ return new class extends Migration {
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->char('uuid', 36)->primary();
+            $table->char('uuid', 36)->unique()->primary();
             $table->unsignedBigInterger('user_uuid');
             $table->unsignedBigInterger('order_status_uuid');
             $table->unsignedBigInterger('payment_uuid');

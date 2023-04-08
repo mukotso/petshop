@@ -12,7 +12,7 @@ return new class extends Migration {
     {
         Schema::create('jwt_tokens', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->char('uuid',36)->primary();
+            $table->char('uuid',36)->unique()->primary();
             $table->char('user_uuid',36);
             $table->text('unique_id');
             $table->string('token_title', 255);

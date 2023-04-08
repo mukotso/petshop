@@ -12,7 +12,7 @@ return new class extends Migration {
     {
         Schema::create('payments', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->char('uuid', 36)->primary();
+            $table->char('uuid', 36)->unique()->primary();
             $table->string('type', 255)->index(); //credit_card cash_on_delivery bank_transfer
             $table->json('details', 255);
             $table->timestamps();
