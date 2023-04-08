@@ -18,7 +18,7 @@ return new class extends Migration {
             $table->unsignedBigInterger('payment_uuid');
             $table->json('products', 255);
             $table->json('address', 255);
-            $table->decimal('delivery_fee', 8, 2)->nullable();
+            $table->decimal('delivery_fee', 8, 2)->default(0);
             $table->decimal('amount', 12, 2);
             $table->timestamp('shipped_at')->nullable();
             $table->timestamps();
