@@ -66,9 +66,9 @@ Route::middleware('auth', 'has_user_access')->group(function () {
 
 //orders Routes
     Route::resource('orders', OrdersController::class);
-    Route::get('/order/{uuid}/download', [OrdersController::class, 'download']);
-    Route::get('/orders/dashboard', [OrdersController::class, 'dashboardOrders']);
-    Route::get('/orders/shipment-locator', [OrdersController::class, 'shipmentLocator']);
+    Route::get('/order/{uuid}/download', [OrdersController::class, 'downloadOrder']);
+    Route::get('/orders/dashboard', [OrdersController::class, 'dashboardOrderDetails']);
+    Route::get('/orders/shipment-locator', [OrdersController::class, 'shipmentLocators']);
 
 //order statuses routes
     Route::resource('order-statuses', OrderStatusesController::class);

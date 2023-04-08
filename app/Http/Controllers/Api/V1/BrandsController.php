@@ -143,7 +143,7 @@ class BrandsController extends Controller
             return response(
                 [
                     [],
-                    'message' => 'Brands deleted successfully'
+                    'message' => 'Brand deleted successfully'
                 ]
                 , 200
             );
