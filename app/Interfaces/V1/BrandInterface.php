@@ -12,7 +12,7 @@ interface BrandInterface
 
     public function showBrandDetails($brand_uuid);
 
-    public function UpdateBrandDetails($brand_uuid);
+    public function updateBrandDetails(array $new_brand_details, $brand_uuid);
 
     public function deleteBrand($brand_uuid);
 

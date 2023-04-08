@@ -12,15 +12,13 @@ class PostRepository implements PostInterface
 
     public function getAllPosts()
     {
-        $blogs = Post::all()->paginate('8');
-        return  new PostResource::collection($blogs);
+        return Post::all()->orderBy('created_at', 'DESC')->paginate('8');
     }
 
 
     public function showPostDetails($post_uuid)
     {
-        $blog = Post::findorFail($post_uuid);
-        return  new PostResource($blog);
+        return Post::findorFail($post_uuid);
     }
 
 

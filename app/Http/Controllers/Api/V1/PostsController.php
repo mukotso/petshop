@@ -6,6 +6,7 @@ use App\Http\Resources\V1\PostResource;
 use App\Interfaces\V1\PostInterface;
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class PostsController extends Controller
 {
@@ -22,8 +23,26 @@ class PostsController extends Controller
      */
     public function index()
     {
-       return $this->postRepository->getAllPosts();
-
+        try {
+            $posts = $this->postRepository->getAllPosts();
+            return response(
+                [
+                    'posts' => PostResource::collection($posts),
+                    'message' => 'Blogs Retrieved successfully'
+                ]
+                , 200
+            );
+        } catch (\Exception $e) {
+            //log exception
+            Log::error($e);
+            return response(
+                [
+                    [],
+                    'message' => 'An error occurred ,Please try again'
+                ]
+                , 500
+            );
+        }
     }
 
 
@@ -32,7 +51,26 @@ class PostsController extends Controller
      */
     public function show($post_uuid)
     {
-        return $this->postRepository->showPostDetails($post_uuid);
+        try {
+            $post = $this->postRepository->showPostDetails($post_uuid);
+            return response(
+                [
+                    'post' => new PostResource($post),
+                    'message' => 'Blogs Retrieved successfully'
+                ]
+                , 200
+            );
+        }catch (\Exception $e) {
+                //log exception
+                Log::error($e);
+                return response(
+                    [
+                        [],
+                        'message' => 'An error occurred ,Please try again'
+                    ]
+                    , 500
+                );
+            }
     }
 
 
