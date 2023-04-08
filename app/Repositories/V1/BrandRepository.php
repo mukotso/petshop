@@ -2,7 +2,6 @@
 
 namespace App\Repositories\V1;
 
-use App\Http\Resources\V1\BrandResource;
 use App\Interfaces\V1\BrandInterface;
 use App\Models\Brand;
 
@@ -11,7 +10,7 @@ class BrandRepository implements BrandInterface
 {
     public function getAllBrands()
     {
-        return Brand::all()->orderBy('created_at', 'DESC')->paginate('8');
+        return Brand::orderBy('created_at', 'DESC')->paginate('8');
     }
 
     public function createBrand(array $brand_details)
