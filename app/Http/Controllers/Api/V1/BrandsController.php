@@ -5,8 +5,6 @@ namespace App\Http\Controllers\Api\V1;
 use App\Http\Requests\BrandsRequest;
 use App\Http\Resources\V1\BrandResource;
 use App\Interfaces\V1\BrandInterface;
-use App\Models\Brand;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
 class BrandsController extends Controller
