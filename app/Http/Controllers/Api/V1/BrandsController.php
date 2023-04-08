@@ -87,7 +87,7 @@ class BrandsController extends Controller
             return response(
                 [
                     'brand' => new BrandResource($brand),
-                    'message' => 'Brands created successfully'
+                    'message' => 'Brands details fetched  successfully'
                 ]
                 , 200
             );
