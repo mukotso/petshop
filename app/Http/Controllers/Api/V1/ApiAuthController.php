@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers\Api\V1;
 
-use App\Http\Controllers\UserLoginRequest;
+
+use App\Http\Requests\UserLoginRequest;
 use App\Http\Requests\UserRegistrationRequest;
 use App\Models\User;
 use Firebase\JWT\JWT;
@@ -33,7 +34,7 @@ class ApiAuthController extends Controller
                 ];
 
                 // Generate the token
-                $token = JWT::encode($payload, $private_key, 'RS256');
+                $token = JWT::encode($payload, config('jwt.key'), 'RS256');
 
                 return response()->json([
                     'success' => true,

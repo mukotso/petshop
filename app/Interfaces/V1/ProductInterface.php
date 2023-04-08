@@ -12,7 +12,7 @@ interface ProductInterface
 
     public function showProductDetails($product_uuid);
 
-    public function updateProductDetails($product_uuid);
+    public function updateProductDetails(array $product_details,$product_uuid);
 
     public function deleteProduct($product_uuid);
 

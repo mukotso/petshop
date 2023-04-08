@@ -3,11 +3,8 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Requests\CategoriesRequest;
-use App\Http\Resources\V1\BrandResource;
 use App\Http\Resources\V1\CategoryResource;
 use App\Interfaces\V1\CategoryInterface;
-use App\Models\Category;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
 class CategoriesController extends Controller
@@ -88,7 +85,7 @@ class CategoriesController extends Controller
             return response(
                 [
                     'category' => new CategoryResource($category),
-                    'message' => 'Category created successfully'
+                    'message' => 'Category details fetched successfully'
                 ]
                 , 200
             );

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Resources\V1\BrandResource;
+use App\Http\Resources\V1\PromotionResource;
 use App\Interfaces\V1\PromotionInterface;
 use App\Models\Promotion;
 use Illuminate\Http\Request;
@@ -27,7 +28,7 @@ class PromotionsController extends Controller
             $promotions = $this->promotionRepository->getAllPromotions();
             return response(
                 [
-                    'brands' => BrandResource::collection($promotions),
+                    'brands' => PromotionResource::collection($promotions),
                     'message' => 'Promotions Retrieved successfully'
                 ]
                 , 200

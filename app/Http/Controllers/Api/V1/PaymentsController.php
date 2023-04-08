@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Api\V1;
 use App\Http\Requests\PaymentsRequest;
 use App\Http\Resources\V1\PaymentResource;
 use App\Interfaces\V1\PaymentInterface;
-use App\Models\Payment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
@@ -86,7 +85,7 @@ class PaymentsController extends Controller
 
             return response(
                 [
-                    'payment' => new PaymentsRequest($payment),
+                    'payment' => new PaymentResource($payment),
                     'message' => 'Payment details fetched  successfully'
                 ]
                 , 200

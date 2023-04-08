@@ -5,8 +5,8 @@ namespace App\Http\Controllers\Api\V1;
 use App\Http\Requests\OrderRequest;
 use App\Http\Resources\V1\OrderResource;
 use App\Interfaces\V1\OrderInterface;
-use App\Models\Order;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
+
 
 class OrdersController extends Controller
 {
@@ -86,7 +86,7 @@ class OrdersController extends Controller
             return response(
                 [
                     'order' => new OrderResource($order),
-                    'message' => 'Order created successfully'
+                    'message' => 'Order details fetched successfully'
                 ]
                 , 200
             );
