@@ -4,8 +4,6 @@ namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Resources\V1\PostResource;
 use App\Interfaces\V1\PostInterface;
-use App\Models\Post;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
 class PostsController extends Controller

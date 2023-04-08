@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Api\V1;
 
+use App\Http\Requests\ProductsRequest;
+use App\Http\Resources\V1\ProductResource;
 use App\Interfaces\V1\ProductInterface;
-use App\Models\Product;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
+
 
 class ProductsController extends Controller
 {
@@ -21,54 +23,138 @@ class ProductsController extends Controller
      */
     public function index()
     {
-        //
+        try {
+            $products = $this->productRepository->getAllProducts();
+
+            return response(
+                [
+                    'products' => ProductResource::collection($products),
+                    'message' => 'Products Retrieved successfully'
+                ]
+                , 200
+            );
+        } catch (\Exception $e) {
+            //log exception
+            Log::error($e);
+            return response(
+                [
+                    [],
+                    'message' => 'An error occurred ,Please try again'
+                ]
+                , 500
+            );
+        }
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(ProductsRequest $request)
     {
-        //
+        try {
+            $this->productRepository->createProduct($request->all());
+
+            return response(
+                [
+                    [],
+                    'message' => 'product created successfully'
+                ]
+                , 200
+            );
+        } catch (\Exception $e) {
+            //log exception
+            Log::error($e);
+            return response(
+                [
+                    [],
+                    'message' => 'An error occurred ,Please try again'
+                ]
+                , 500
+            );
+        }
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
 
     /**
      * Display the specified resource.
      */
-    public function show(Product $product)
+    public function show($product_uuid)
     {
-        //
-    }
+        try {
+            $product = $this->productRepository->showProductDetails($product_uuid);
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Product $product)
-    {
-        //
+            return response(
+                [
+                    'product' => new ProductResource($product),
+                    'message' => 'product details fetched  successfully'
+                ]
+                , 200
+            );
+        } catch (\Exception $e) {
+            //log exception
+            Log::error($e);
+            return response(
+                [
+                    [],
+                    'message' => 'An error occurred ,Please try again'
+                ]
+                , 500
+            );
+        }
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Product $product)
+    public function update(ProductsRequest $request,  $product_uuid)
     {
-        //
+        try {
+            $this->productRepository->updateProductDetails($request->all(), $product_uuid);
+            return response(
+                [
+                    [],
+                    'message' => 'product details updated successfully'
+                ]
+                , 200
+            );
+        } catch (\Exception $e) {
+            //log exception
+            Log::error($e);
+            return response(
+                [
+                    [],
+                    'message' => 'An error occurred ,Please try again'
+                ]
+                , 500
+            );
+        }
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Product $product)
+    public function destroy($product_uuid)
     {
-        //
+        try {
+            $this->productRepository->deleteProduct($product_uuid);
+
+            return response(
+                [
+                    [],
+                    'message' => 'product deleted successfully'
+                ]
+                , 200
+            );
+        } catch (\Exception $e) {
+            //log exception
+            Log::error($e);
+            return response(
+                [
+                    [],
+                    'message' => 'An error occurred ,Please try again'
+                ]
+                , 500
+            );
+        }
     }
 }
