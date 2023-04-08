@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers\Api\V1;
 
+use App\Http\Requests\CategoriesRequest;
+use App\Http\Resources\V1\BrandResource;
+use App\Http\Resources\V1\CategoryResource;
 use App\Interfaces\V1\CategoryInterface;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class CategoriesController extends Controller
 {
@@ -21,54 +25,140 @@ class CategoriesController extends Controller
      */
     public function index()
     {
-        //
+        try {
+            $categories = $this->categoryRepository->getAllCategories();
+
+            return response(
+                [
+                    'categories' => CategoryResource::collection($categories),
+                    'message' => 'Categories Retrieved successfully'
+                ]
+                , 200
+            );
+        } catch (\Exception $e) {
+            //log exception
+            Log::error($e);
+            return response(
+                [
+                    [],
+                    'message' => 'An error occurred ,Please try again'
+                ]
+                , 500
+            );
+        }
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(CategoriesRequest $request)
     {
-        //
+        try {
+            $this->categoryRepository->createCategory($request->all());
+
+            return response(
+                [
+                    [],
+                    'message' => 'Category created successfully'
+                ]
+                , 200
+            );
+        } catch (\Exception $e) {
+            //log exception
+            Log::error($e);
+            return response(
+                [
+                    [],
+                    'message' => 'An error occurred ,Please try again'
+                ]
+                , 500
+            );
+        }
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
 
     /**
      * Display the specified resource.
      */
-    public function show(Category $category)
+    public function show($category_uuid)
     {
-        //
+        try {
+            $category = $this->categoryRepository->showCategoryDetails($category_uuid);
+
+            return response(
+                [
+                    'category' => new CategoryResource($category),
+                    'message' => 'Category created successfully'
+                ]
+                , 200
+            );
+        } catch (\Exception $e) {
+            //log exception
+            Log::error($e);
+            return response(
+                [
+                    [],
+                    'message' => 'An error occurred ,Please try again'
+                ]
+                , 500
+            );
+        }
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Category $category)
-    {
-        //
-    }
+
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Category $category)
+    public function update(CategoriesRequest $request, $category_uuid)
     {
-        //
+        try {
+            $this->categoryRepository->updateCategoryDetails($request->all(), $category_uuid);
+            return response(
+                [
+                    [],
+                    'message' => 'Category details updated successfully'
+                ]
+                , 200
+            );
+        } catch (\Exception $e) {
+            //log exception
+            Log::error($e);
+            return response(
+                [
+                    [],
+                    'message' => 'An error occurred ,Please try again'
+                ]
+                , 500
+            );
+        }
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Category $category)
+    public function destroy($category_uuid)
     {
-        //
+        try {
+            $this->categoryRepository->deleteCategory($category_uuid);
+
+            return response(
+                [
+                    [],
+                    'message' => 'Category deleted successfully'
+                ]
+                , 200
+            );
+        } catch (\Exception $e) {
+            //log exception
+            Log::error($e);
+            return response(
+                [
+                    [],
+                    'message' => 'An error occurred ,Please try again'
+                ]
+                , 500
+            );
+        }
     }
 }

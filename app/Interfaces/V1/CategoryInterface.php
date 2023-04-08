@@ -12,7 +12,7 @@ interface CategoryInterface
 
     public function showCategoryDetails($category_uuid);
 
-    public function updateCategoryDetails($category_uuid);
+    public function updateCategoryDetails(array $updated_category_details ,$category_uuid);
 
     public function deleteCategory($category_uuid);
 
