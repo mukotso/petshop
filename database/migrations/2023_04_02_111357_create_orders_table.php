@@ -11,11 +11,11 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::create('orders', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->unsignedBigInteger('id')->unique();
             $table->char('uuid', 36)->unique()->primary();
-            $table->unsignedBigInterger('user_uuid');
-            $table->unsignedBigInterger('order_status_uuid');
-            $table->unsignedBigInterger('payment_uuid');
+            $table->char('user_uuid',36);
+            $table->char('order_status_uuid',36);
+            $table->char('payment_uuid',36);
             $table->json('products', 255);
             $table->json('address', 255);
             $table->decimal('delivery_fee', 8, 2)->default(0);

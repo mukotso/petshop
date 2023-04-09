@@ -11,7 +11,7 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::create('promotions', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->unsignedBigInteger('id')->unique();
             $table->char('uuid', 36)->unique()->primary();
             $table->string('title', 255)->fulltext();
             $table->text('content', 255);
