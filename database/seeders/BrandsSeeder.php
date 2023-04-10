@@ -14,7 +14,7 @@ class BrandsSeeder extends Seeder
     public function run(): void
     {
         $brands = [
-         
+
             [
                 'title' => 'feeders',
                 'slug' => 'feeders '
@@ -35,10 +35,10 @@ class BrandsSeeder extends Seeder
 
         foreach ($brands as $brand) {
             //create  brand if it does not exist in the database ( to avoid duplicates )
-            if( !Brand::where('title', $brand->title)->exists()){
+            if( !Brand::where('title', $brand['title'])->exists()){
                 Brand::create($brand);
             }
-          
+
         }
     }
 }

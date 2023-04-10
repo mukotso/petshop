@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Promotion;
 use Illuminate\Database\Seeder;
 
 class PromotionsSeeder extends Seeder
@@ -13,6 +13,6 @@ class PromotionsSeeder extends Seeder
     public function run(): void
     {
         //Create Five promotions
-        Promotions::factory()->count(5)->create();
+        Promotion::factory()->count(5)->create();
     }
 }

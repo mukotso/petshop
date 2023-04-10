@@ -14,7 +14,7 @@ class OrderStatuses extends Seeder
     public function run(): void
     {
         $statuses = [
-         
+
             [
                 'title' => 'open',
             ],
@@ -34,10 +34,10 @@ class OrderStatuses extends Seeder
 
         foreach ($statuses as $status) {
             //create  status if it does not exist in the database ( to avoid duplicates )
-            if( !OrderStatus::where('title', $status->title)->exists()){
+            if( !OrderStatus::where('title', $status['title'])->exists()){
                 OrderStatus::create($status);
             }
-          
+
         }
     }
 }

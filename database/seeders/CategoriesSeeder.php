@@ -14,7 +14,7 @@ class CategoriesSeeder extends Seeder
     public function run(): void
     {
         $categories = [
-         
+
             [
                 'title' => 'family',
                 'slug' => 'family '
@@ -27,16 +27,16 @@ class CategoriesSeeder extends Seeder
                 'title' => 'dieting',
                 'slug' => 'dieting'
             ],
-           
-            
+
+
         ];
 
         foreach ($categories as $category) {
             //create  category if it does not exist in the database
-            if( !Category::where('title', $category->title)->exists()){
+            if( !Category::where('title', $category['title'])->exists()){
                 Category::create($category);
             }
-          
+
         }
     }
 }
