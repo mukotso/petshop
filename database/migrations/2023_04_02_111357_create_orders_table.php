@@ -12,9 +12,9 @@ return new class extends Migration {
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->char('id', 36)->unique()->primary();
-            $table->char('user_uuid',36);
-            $table->char('order_status_uuid',36);
-            $table->char('payment_uuid',36);
+            $table->char('user_id',36);
+            $table->char('order_status_id',36);
+            $table->char('payment_id',36);
             $table->json('products', 255);
             $table->json('address', 255);
             $table->decimal('delivery_fee', 8, 2)->default(0);
@@ -22,9 +22,9 @@ return new class extends Migration {
             $table->timestamp('shipped_at')->nullable();
             $table->timestamps();
 
-            $table->foreign('user_uuid')->references('uuid')->on('users');
-            $table->foreign('order_status_uuid')->references('uuid')->on('order_statuses');
-            $table->foreign('payment_uuid')->references('uuid')->on('payments');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('order_status_id')->references('id')->on('order_statuses');
+            $table->foreign('payment_id')->references('id')->on('payments');
         });
     }
 

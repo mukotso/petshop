@@ -12,7 +12,7 @@ return new class extends Migration {
     {
         Schema::create('products', function (Blueprint $table) {
             $table->char('id', 36)->unique()->primary();
-            $table->char('category_uuid',36);
+            $table->char('category_id',36);
             $table->string('title', 255)->fulltext();
             $table->decimal('price', 12, 2);
             $table->text('description');
@@ -20,7 +20,7 @@ return new class extends Migration {
             $table->timestamps();
             $table->timestamp('deleted_at')->nullable();
 
-            $table->foreign('category_uuid')->references('uuid')->on('categories');
+            $table->foreign('category_id')->references('id')->on('categories');
         });
     }
 
