@@ -22,6 +22,10 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'first_name',
+        'last_name',
+        'address',
+        'phone_number'
     ];
 
     /**
@@ -42,4 +46,8 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function scopeNonAdmin($query){
+       return  $query->where('is_admin', false);
+    }
 }
