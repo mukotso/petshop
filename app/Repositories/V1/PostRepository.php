@@ -12,7 +12,7 @@ class PostRepository implements PostInterface
 
     public function getAllPosts()
     {
-        return Post::all()->orderBy('created_at', 'DESC')->paginate('8');
+        return Post::orderBy('created_at', 'DESC')->paginate('8');
     }
 
 

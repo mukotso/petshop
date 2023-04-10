@@ -11,7 +11,7 @@ class CategoryRepository implements CategoryInterface
 
     public function getAllCategories()
     {
-        return Category::all()->orderBy('created_at', 'DESC')->paginate('8');
+        return Category::orderBy('created_at', 'DESC')->paginate('8');
     }
 
     public function createCategory(array $category_details)
