@@ -9,8 +9,7 @@ use App\Models\User;
 use Firebase\JWT\JWT;
 use Illuminate\Support\Facades\Hash;
 
-use function App\Http\Controllers\config;
-use function App\Http\Controllers\response;
+
 
 class ApiAuthController extends Controller
 {
@@ -40,7 +39,7 @@ class ApiAuthController extends Controller
                     'success' => true,
                     'message' => 'User Logged In Succesfully!',
                     'data' => [
-                        'accessToken' => JWT::encode($payload, config('jwt.key'), 'RS256'),
+                        'accessToken' => $token,
                     ],
                 ], 200);
             }
