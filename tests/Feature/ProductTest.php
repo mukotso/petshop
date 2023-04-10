@@ -42,6 +42,17 @@ class ProductTest extends TestCase
         ])->assertStatus(200);
     }
 
+    /**
+     * @test
+     * @throws Throwable
+     */
+    public function logged_in_user_can_view_a_product(): void
+    {
+        $this->authenticateUser();
+        $this->post(route('product.show',Product::query()->first()?->id))
+        ->assertStatus(200);
+    }
+
 
     /**
      * @test
@@ -64,4 +75,25 @@ class ProductTest extends TestCase
 
         ])->assertStatus(200);
     }
+
+    /**
+     * @test
+     * @throws Throwable
+     */
+    public function logged_in_user_can_delete_a_product(): void
+    {
+        $this->authenticateUser();
+        $product_id = Product::query()->first()?->id;
+       $response =  $this->put(route(
+            'product.delete',
+           $product_id
+        ));
+
+        $response->assertStatus(200)
+       ->assertDatabaseMissing('products', [
+           'id' => $product_id
+       ]);
+
+    }
+
 }
