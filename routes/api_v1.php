@@ -30,10 +30,11 @@ Route::group(['middleware' => ['json.response']], function () {
 //Route::middleware('auth', 'has_admin_access')->group(function () {
 //admin routes
     Route::prefix('admin')->group(function () {
-        Route::get('/create', [UsersController::class, 'store'])->name('user.create');
+        Route::post('/create', [UsersController::class, 'create'])->name('user.create');
         Route::get('/user-listing', [UsersController::class, 'index'])->name('user.listing');
-        Route::get('/user-edit/{uuid}', [UsersController::class, 'show'])->name('user.show');
-        Route::get('/user-delete/{uuid}', [UsersController::class, 'destroy'])->name('user.delete');
+        Route::get('/user-show/{uuid}', [UsersController::class, 'show'])->name('user.show');
+        Route::put('/user-edit/{uuid}', [UsersController::class, 'update'])->name('user.edit');
+        Route::delete('/user-delete/{uuid}', [UsersController::class, 'destroy'])->name('user.delete');
     });
 //});
 

@@ -11,7 +11,7 @@ class UsersRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,7 @@ class UsersRequest extends FormRequest
         return [
             'first_name' => 'required',
             'last_name' => 'required',
-            'email' => 'required|email',
+            'email' => 'required|email|unique:users,id,'.$this->id,
             'address' => 'required',
             'phone_number' => 'bail|required|numeric|min:10'
         ];
