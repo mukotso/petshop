@@ -23,7 +23,7 @@ class PaymentsRequest extends FormRequest
     {
         return [
             'type' => 'required',
-            'details' => 'required',
+            'details' => 'required|array',
         ];
     }
 

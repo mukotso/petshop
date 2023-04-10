@@ -5,13 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Product extends Model
 {
-    use HasFactory, HasUuids , Softdelete;
+    use HasFactory, HasUuids , SoftDeletes;
 
 
-    protected  $fillable = ['uuid','title','price','description','metadata'];
+    protected  $fillable = ['uuid','title','price','description','metadata','category_id'];
 
     protected $casts = [
         'created_at' => 'datetime:d/m/Y h:i a',
@@ -21,7 +22,7 @@ class Product extends Model
 
     public function category()
     {
-        return $this->hasOne(Category::class, 'uuid', 'category_uuid');
+        return $this->hasOne(Category::class, 'id', 'category_id');
     }
 
 }

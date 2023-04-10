@@ -22,8 +22,8 @@ class CategoriesRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => 'bail|required|unique:categories|max:255',
-            'slug' => 'bail|required|unique:categories',
+            'title' => 'bail|required||max:255|unique:categories,id,'.$this->id,
+            'slug' => 'bail|required|unique:categories,id,'.$this->id,
         ];
     }
 

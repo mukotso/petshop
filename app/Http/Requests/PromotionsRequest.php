@@ -22,7 +22,7 @@ class PromotionsRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => 'bail|required|unique:promotions|max:255',
+            'title' => 'bail|required|max:255|unique:promotions,id,'.$this->id,
             'content' => 'required',
             'metadata' => 'required'
         ];
