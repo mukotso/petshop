@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Model>
  */
-class PromotionsFactory extends Factory
+class PromotionFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -19,7 +19,7 @@ class PromotionsFactory extends Factory
         $startingDate = Today();
         $endingDate   = strtotime('+1 Week', $startingDate->getTimestamp());
         return [
-                'text' => fake()->sentence(),
+                'title' => fake()->sentence(),
                 'content' => fake()->paragraph(),
                 'metadata' => [
                     "valid_from" => $startingDate,
