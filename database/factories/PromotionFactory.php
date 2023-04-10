@@ -16,16 +16,15 @@ class PromotionsFactory extends Factory
      */
     public function definition(): array
     {
+        $startingDate = Today();
+        $endingDate   = strtotime('+1 Week', $startingDate->getTimestamp());
         return [
-            
                 'text' => fake()->sentence(),
                 'content' => fake()->paragraph(),
                 'metadata' => [
                     "valid_from" => $startingDate,
                     "valid_to" => $endingDate
                 ],
-
-
         ];
     }
 }
