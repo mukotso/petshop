@@ -13,7 +13,7 @@ class PromotionRepository implements PromotionInterface
 
     public function getAllPromotions()
     {
-        return Promotion::all()->orderBy('created_at', 'DESC')->paginate('8');
+        return Promotion::orderBy('created_at', 'DESC')->paginate('8');
     }
 
 

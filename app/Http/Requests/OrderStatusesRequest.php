@@ -22,7 +22,7 @@ class OrderStatusesRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => 'bail|required|unique:order_statuses',
+            'title' => 'bail|required|unique:order_statuses,id,'.$this->id,
         ];
     }
 

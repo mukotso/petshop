@@ -22,11 +22,11 @@ class ProductsRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'category_id' => 'bail|required|numeric',
+            'category_id' => 'bail|required',
             'title' => 'bail|required|max:255',
             'description' => 'required',
-            'metadata' => 'required',
-            'price' => 'required'
+            'metadata' => 'required|array',
+            'price' => 'required|numeric'
         ];
     }
 

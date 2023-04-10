@@ -22,8 +22,8 @@ class BrandsRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => 'bail|required|unique:brands|max:255',
-            'slug' => 'bail|required:unique:brands',
+            'title' => 'bail|required|max:255|unique:brands,id,'.$this->id,
+            'slug' => 'bail|required:unique:brands,id,'.$this->id,
         ];
     }
 

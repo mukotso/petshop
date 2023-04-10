@@ -18,7 +18,7 @@ class OrderStatusRepository implements OrderStatusInterface
 
     public function createOrderStatus(array $order_status_details)
     {
-        return Order::create($order_status_details);
+        return OrderStatus::create($order_status_details);
     }
 
     public function showOrderStatusDetails($order_status_uuid)

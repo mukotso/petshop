@@ -22,8 +22,8 @@ class PostsRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => 'bail|required|unique:posts|max:255',
-            'slug' => 'bail|required|unique:posts',
+            'title' => 'bail|required|max:255|unique:posts,id,'.$this->id,
+            'slug' => 'bail|required|unique:posts,id,'.$this->id,
             'content' => 'required',
             'metadata' => 'required',
         ];

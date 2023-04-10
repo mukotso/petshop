@@ -63,10 +63,9 @@ class PaymentsController extends Controller
             );
         } catch (\Exception $e) {
             //log exception
-            Log::error($e);
+            dd($e);
             return response(
                 [
-                    [],
                     'message' => 'An error occurred ,Please try again'
                 ]
                 , 500
