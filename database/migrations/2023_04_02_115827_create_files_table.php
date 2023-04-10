@@ -11,7 +11,7 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::create('files', function (Blueprint $table) {
-            $table->unsignedBigInteger('id')->unique();
+            $table->char('id', 36)->unique()->primary();
             $table->char('uuid', 36)->unique()->primary();
             $table->string('name', 255)->fulltext();
             $table->string('path', 255);

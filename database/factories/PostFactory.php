@@ -3,11 +3,12 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Str;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Model>
  */
-class PostsFactory extends Factory
+class PostFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -18,7 +19,7 @@ class PostsFactory extends Factory
     {
         $title = fake()->sentence();
         $slug = Str::slug($title);
-        
+
         return [
             'title' => $title,
             'slug' => $slug,
@@ -26,8 +27,8 @@ class PostsFactory extends Factory
             'metadata' => [
                 "author" => fake()->name(),
             ]
-    
-           
+
+
         ];
     }
 }

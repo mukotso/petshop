@@ -11,8 +11,7 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::create('orders', function (Blueprint $table) {
-            $table->unsignedBigInteger('id')->unique();
-            $table->char('uuid', 36)->unique()->primary();
+            $table->char('id', 36)->unique()->primary();
             $table->char('user_uuid',36);
             $table->char('order_status_uuid',36);
             $table->char('payment_uuid',36);

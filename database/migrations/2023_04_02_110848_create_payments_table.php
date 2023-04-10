@@ -11,8 +11,7 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::create('payments', function (Blueprint $table) {
-            $table->unsignedBigInteger('id')->unique();
-            $table->char('uuid', 36)->unique()->primary();
+            $table->char('id', 36)->unique()->primary();
             $table->string('type', 255)->index(); //credit_card cash_on_delivery bank_transfer
             $table->json('details', 255);
             $table->timestamps();

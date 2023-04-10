@@ -11,8 +11,7 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::create('brands', function (Blueprint $table) {
-            $table->unsignedBigInteger('id')->unique();
-            $table->char('uuid', 36)->unique()->primary();
+            $table->char('id', 36)->unique()->primary();
             $table->string('title', 255)->fulltext();
             $table->string('slug', 255)->fulltext();
             $table->timestamps();
