@@ -28,7 +28,8 @@ class UserRepository implements UserInterface
     public function updateUserDetails(array $user_details, $user_uuid)
     {
         $user = User::findorFail($user_uuid);
-        return $user->update($user_details);
+        $user->update($user_details);
+        return $user;
     }
 
     public function deleteUser($user_uuid)

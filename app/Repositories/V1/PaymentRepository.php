@@ -27,7 +27,8 @@ class PaymentRepository implements PaymentInterface
     public function updatePaymentDetails(array $payment_details, $payment_uuid)
     {
         $payment = Payment::findorFail($payment_uuid);
-        return $payment->update($payment_details);
+        $payment->update($payment_details);
+        return $payment;
     }
 
     public function deletePaymentDetails($payment_uuid)

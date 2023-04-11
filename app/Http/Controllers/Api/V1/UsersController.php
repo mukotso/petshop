@@ -20,6 +20,41 @@ class UsersController extends Controller
     /**
      * Display a listing of the resource.
      */
+
+    /**
+     * @OA\Get(
+     * path="/admin/user-listing",
+     * summary="List all users",
+     * description="admin view all users",
+     * tags={"Admin end points"},
+     *
+    @OA\Response(
+     * response=200,
+     * description="Successfull (Ok)",
+     * ),
+     * @OA\Response(
+     * response=403,
+     * description="Forbidden"
+     * ),
+     *
+     * @OA\Response(
+     * response=401,
+     * description="Unauthenticated"
+     * ),
+     * @OA\Response(
+     * response=404,
+     * description="Page not found"
+     * ),
+     *  @OA\Response(
+     * response=422,
+     * description="Unprocessable Entity"
+     * ),
+     *  @OA\Response(
+     * response=500,
+     * description="Internal server error"
+     * ),
+     * )
+     */
     public function index()
     {
         try {
@@ -47,6 +82,56 @@ class UsersController extends Controller
     /**
      * Show the form for creating a new resource.
      */
+
+    /**
+     * @OA\Post(
+     * path="/admin/create",
+     * summary="Create  a user",
+     * description="admin create a user account",
+     * tags={"Admin end points"},
+     * @OA\RequestBody(
+     *    required=true,
+     *    description="Pass required user details",
+     *    @OA\JsonContent(
+     *       required={"first_name","last_name","email","password","address","phone_number"},
+     *       @OA\Property(property="first_name", type="string", example="kelvin"),
+     *       @OA\Property(property="last_name", type="string", example="mukotso"),
+     *       @OA\Property(property="email", type="string", format="email", example="user@gmail"),
+     *       @OA\Property(property="password", type="string", format="password", example="password"),
+     *       @OA\Property(property="address", type="string", example="east kenya"),
+     *       @OA\Property(property="phone_number", type="number", format="tel", example="0776756454"),
+     *    ),
+     * ),
+     *
+    @OA\Response(
+     * response=200,
+     * description="Successfull (Ok)",
+     * ),
+     * @OA\Response(
+     * response=403,
+     * description="Forbidden"
+     * ),
+     *
+     * @OA\Response(
+     * response=401,
+     * description="Unauthenticated"
+     * ),
+     * @OA\Response(
+     * response=404,
+     * description="Page not found"
+     * ),
+     *  @OA\Response(
+     * response=422,
+     * description="Unprocessable Entity"
+     * ),
+     *  @OA\Response(
+     * response=500,
+     * description="Internal server error"
+     * ),
+     * )
+     */
+
+
     public function create(UsersRequest $request)
     {
         try {
@@ -75,6 +160,48 @@ class UsersController extends Controller
 
     /**
      * Display the specified resource.
+     */
+
+    /**
+     * @OA\Get(
+     * path="/admin/user-show/{user_uuid}",
+     * summary="view a single user",
+     * description="admin create a user account",
+     * tags={"Admin end points"},
+     * @OA\Parameter(
+     *          name="user_uuid",
+     *          description="user id",
+     *          required=true,
+     *          in="path",
+     *
+     *      ),
+     *
+    @OA\Response(
+     * response=200,
+     * description="Successfull (Ok)",
+     * ),
+     * @OA\Response(
+     * response=403,
+     * description="Forbidden"
+     * ),
+     *
+     * @OA\Response(
+     * response=401,
+     * description="Unauthenticated"
+     * ),
+     * @OA\Response(
+     * response=404,
+     * description="Page not found"
+     * ),
+     *  @OA\Response(
+     * response=422,
+     * description="Unprocessable Entity"
+     * ),
+     *  @OA\Response(
+     * response=500,
+     * description="Internal server error"
+     * ),
+     * )
      */
     public function show($user_uuid)
     {
@@ -105,6 +232,60 @@ class UsersController extends Controller
     /**
      * Update the specified resource in storage.
      */
+    /**
+     * @OA\Put(
+     * path="/admin/user-edit/{user_uuid}",
+     * summary="update user details",
+     * description="admin update a user account",
+     * tags={"Admin end points"},
+     * @OA\Parameter(
+     *          name="user_uuid",
+     *          description="user id",
+     *          required=true,
+     *          in="path",
+     *
+     *      ),
+
+     * @OA\RequestBody(
+     *    required=true,
+     *    description="Pass required user details",
+     *    @OA\JsonContent(
+     *       required={"first_name","last_name","email","address","phone_number"},
+     *       @OA\Property(property="first_name", type="string", example="kelvin"),
+     *       @OA\Property(property="last_name", type="string", example="mukotso"),
+     *       @OA\Property(property="email", type="string", format="email", example="useredited@gmail"),
+     *       @OA\Property(property="address", type="string", example="east kenya"),
+     *       @OA\Property(property="phone_number", type="number", format="tel", example="0776756454"),
+     *    ),
+     * ),
+     *
+    @OA\Response(
+     * response=200,
+     * description="Successfull (Ok)",
+     * ),
+     * @OA\Response(
+     * response=403,
+     * description="Forbidden"
+     * ),
+     *
+     * @OA\Response(
+     * response=401,
+     * description="Unauthenticated"
+     * ),
+     * @OA\Response(
+     * response=404,
+     * description="Page not found"
+     * ),
+     *  @OA\Response(
+     * response=422,
+     * description="Unprocessable Entity"
+     * ),
+     *  @OA\Response(
+     * response=500,
+     * description="Internal server error"
+     * ),
+     * )
+     */
     public function update(UsersRequest $request, $user_uuid)
     {
         try {
@@ -129,6 +310,48 @@ class UsersController extends Controller
 
     /**
      * Remove the specified resource from storage.
+     */
+
+    /**
+     * @OA\Delete(
+     * path="/admin/user-delete/{user_uuid}",
+     * summary="delete a single user",
+     * description="admin delete a user account",
+     * tags={"Admin end points"},
+     * @OA\Parameter(
+     *          name="user_uuid",
+     *          description="user id",
+     *          required=true,
+     *          in="path",
+     *
+     *      ),
+     *
+    @OA\Response(
+     * response=200,
+     * description="Successfull (Ok)",
+     * ),
+     * @OA\Response(
+     * response=403,
+     * description="Forbidden"
+     * ),
+     *
+     * @OA\Response(
+     * response=401,
+     * description="Unauthenticated"
+     * ),
+     * @OA\Response(
+     * response=404,
+     * description="Page not found"
+     * ),
+     *  @OA\Response(
+     * response=422,
+     * description="Unprocessable Entity"
+     * ),
+     *  @OA\Response(
+     * response=500,
+     * description="Internal server error"
+     * ),
+     * )
      */
     public function destroy($user_uuid)
     {

@@ -20,6 +20,41 @@ class BrandsController extends Controller
     /**
      * Display a listing of the resource.
      */
+
+    /**
+     * @OA\Get(
+     * path="/brands",
+     * summary="List all brands",
+     * description=" view all brands",
+     * tags={"Brands"},
+     *
+    @OA\Response(
+     * response=200,
+     * description="Successfull (Ok)",
+     * ),
+     * @OA\Response(
+     * response=403,
+     * description="Forbidden"
+     * ),
+     *
+     * @OA\Response(
+     * response=401,
+     * description="Unauthenticated"
+     * ),
+     * @OA\Response(
+     * response=404,
+     * description="Page not found"
+     * ),
+     *  @OA\Response(
+     * response=422,
+     * description="Unprocessable Entity"
+     * ),
+     *  @OA\Response(
+     * response=500,
+     * description="Internal server error"
+     * ),
+     * )
+     */
     public function index()
     {
         try {
@@ -47,6 +82,50 @@ class BrandsController extends Controller
 
     /**
      * Show the form for creating a new resource.
+     */
+
+    /**
+     * @OA\Post(
+     * path="/brand/create",
+     * summary="Create  a brand",
+     * description=" create a brand",
+     * tags={"Brands"},
+     * @OA\RequestBody(
+     *    required=true,
+     *    description="Pass required brand details",
+     *    @OA\JsonContent(
+     *       required={"title","slug"},
+     *       @OA\Property(property="title", type="string", example="test brand"),
+     *       @OA\Property(property="slug", type="string", example="test"),
+     *    ),
+     * ),
+     *
+    @OA\Response(
+     * response=200,
+     * description="Successfull (Ok)",
+     * ),
+     * @OA\Response(
+     * response=403,
+     * description="Forbidden"
+     * ),
+     *
+     * @OA\Response(
+     * response=401,
+     * description="Unauthenticated"
+     * ),
+     * @OA\Response(
+     * response=404,
+     * description="Page not found"
+     * ),
+     *  @OA\Response(
+     * response=422,
+     * description="Unprocessable Entity"
+     * ),
+     *  @OA\Response(
+     * response=500,
+     * description="Internal server error"
+     * ),
+     * )
      */
     public function create(BrandsRequest $request)
     {
@@ -76,6 +155,49 @@ class BrandsController extends Controller
     /**
      * Display the specified resource.
      */
+
+
+    /**
+     * @OA\Get(
+     * path="/brand/{brand_uuid}",
+     * summary="view a single brand",
+     * description="view a brand",
+     * tags={"Brands"},
+     * @OA\Parameter(
+     *          name="brand_uuid",
+     *          description="brand id",
+     *          required=true,
+     *          in="path",
+     *
+     *      ),
+     *
+    @OA\Response(
+     * response=200,
+     * description="Successfull (Ok)",
+     * ),
+     * @OA\Response(
+     * response=403,
+     * description="Forbidden"
+     * ),
+     *
+     * @OA\Response(
+     * response=401,
+     * description="Unauthenticated"
+     * ),
+     * @OA\Response(
+     * response=404,
+     * description="Page not found"
+     * ),
+     *  @OA\Response(
+     * response=422,
+     * description="Unprocessable Entity"
+     * ),
+     *  @OA\Response(
+     * response=500,
+     * description="Internal server error"
+     * ),
+     * )
+     */
     public function show($brand_uuid)
     {
         try {
@@ -101,9 +223,59 @@ class BrandsController extends Controller
     }
 
 
+
+
     /**
-     * Update the specified resource in storage.
+     * @OA\Put(
+     * path="/brand/{brand_uuid}",
+     * summary="update a  brand",
+     * description="update a brand",
+     * tags={"Brands"},
+     * @OA\Parameter(
+     *          name="brand_uuid",
+     *          description="brand id",
+     *          required=true,
+     *          in="path",
+     *
+     *      ),
+     *
+     *  @OA\RequestBody(
+     *    required=true,
+     *    description="Pass required brand details",
+     *    @OA\JsonContent(
+     *       required={"title","slug"},
+     *       @OA\Property(property="title", type="string", example="edited brand"),
+     *       @OA\Property(property="slug", type="string", example=" edited slug"),
+     *    ),
+     * ),
+    @OA\Response(
+     * response=200,
+     * description="Successfull (Ok)",
+     * ),
+     * @OA\Response(
+     * response=403,
+     * description="Forbidden"
+     * ),
+     *
+     * @OA\Response(
+     * response=401,
+     * description="Unauthenticated"
+     * ),
+     * @OA\Response(
+     * response=404,
+     * description="Page not found"
+     * ),
+     *  @OA\Response(
+     * response=422,
+     * description="Unprocessable Entity"
+     * ),
+     *  @OA\Response(
+     * response=500,
+     * description="Internal server error"
+     * ),
+     * )
      */
+
     public function update(BrandsRequest $request, $brand_uuid)
     {
         try {
@@ -129,6 +301,48 @@ class BrandsController extends Controller
 
     /**
      * Remove the specified resource from storage.
+     */
+
+    /**
+     * @OA\Delete(
+     * path="/brand/{brand_uuid}",
+     * summary="delete a single category",
+     * description="delete a category",
+     * tags={"Brands"},
+     * @OA\Parameter(
+     *          name="brand_uuid",
+     *          description="brand id",
+     *          required=true,
+     *          in="path",
+     *
+     *      ),
+     *
+    @OA\Response(
+     * response=200,
+     * description="Successfull (Ok)",
+     * ),
+     * @OA\Response(
+     * response=403,
+     * description="Forbidden"
+     * ),
+     *
+     * @OA\Response(
+     * response=401,
+     * description="Unauthenticated"
+     * ),
+     * @OA\Response(
+     * response=404,
+     * description="Page not found"
+     * ),
+     *  @OA\Response(
+     * response=422,
+     * description="Unprocessable Entity"
+     * ),
+     *  @OA\Response(
+     * response=500,
+     * description="Internal server error"
+     * ),
+     * )
      */
     public function destroy($brand_uuid)
     {

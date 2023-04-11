@@ -21,6 +21,41 @@ class ProductsController extends Controller
     /**
      * Display a listing of the resource.
      */
+
+    /**
+     * @OA\Get(
+     * path="/products",
+     * summary="List all products",
+     * description="view all products",
+     * tags={"Products"},
+     *
+    @OA\Response(
+     * response=200,
+     * description="Successfull (Ok)",
+     * ),
+     * @OA\Response(
+     * response=403,
+     * description="Forbidden"
+     * ),
+     *
+     * @OA\Response(
+     * response=401,
+     * description="Unauthenticated"
+     * ),
+     * @OA\Response(
+     * response=404,
+     * description="Page not found"
+     * ),
+     *  @OA\Response(
+     * response=422,
+     * description="Unprocessable Entity"
+     * ),
+     *  @OA\Response(
+     * response=500,
+     * description="Internal server error"
+     * ),
+     * )
+     */
     public function index()
     {
         try {
@@ -49,6 +84,56 @@ class ProductsController extends Controller
     /**
      * Show the form for creating a new resource.
      */
+
+    /**
+     * @OA\Post(
+     * path="/product/create",
+     * summary="Create  product",
+     * description=" create product",
+     * tags={"Products"},
+     * @OA\RequestBody(
+     *    required=true,
+     *    description="Pass required product details",
+     *    @OA\JsonContent(
+     *       required={"title","price","category_id","description","metadata"},
+     *       @OA\Property(property="title", type="string", example="dog chain"),
+     *       @OA\Property(property="price", type="number", example="400"),
+     *     @OA\Property(property="category_id", type="string", example=" "),
+     *     @OA\Property(property="description", type="string", example="best for cats"),
+     *    @OA\Property(property="metadata", type="object", example={"brand":"98e61f3e-ecb0-4286-83a2-fba964a7a6b6"}),
+     *
+     * ),
+     * ),
+     *
+     *
+    @OA\Response(
+     * response=200,
+     * description="Successfull (Ok)",
+     * ),
+     * @OA\Response(
+     * response=403,
+     * description="Forbidden"
+     * ),
+     *
+     * @OA\Response(
+     * response=401,
+     * description="Unauthenticated"
+     * ),
+     * @OA\Response(
+     * response=404,
+     * description="Page not found"
+     * ),
+     *  @OA\Response(
+     * response=422,
+     * description="Unprocessable Entity"
+     * ),
+     *  @OA\Response(
+     * response=500,
+     * description="Internal server error"
+     * ),
+     * )
+     */
+
     public function create(ProductsRequest $request)
     {
         try {
@@ -78,6 +163,49 @@ class ProductsController extends Controller
     /**
      * Display the specified resource.
      */
+
+    /**
+     * @OA\Get(
+     * path="/product/{product_uuid}",
+     * summary="view a single product",
+     * description="view product",
+     * tags={"Products"},
+     * @OA\Parameter(
+     *          name="product_uuid",
+     *          description="product id",
+     *          required=true,
+     *          in="path",
+     *
+     *      ),
+     *
+    @OA\Response(
+     * response=200,
+     * description="Successfull (Ok)",
+     * ),
+     * @OA\Response(
+     * response=403,
+     * description="Forbidden"
+     * ),
+     *
+     * @OA\Response(
+     * response=401,
+     * description="Unauthenticated"
+     * ),
+     * @OA\Response(
+     * response=404,
+     * description="Page not found"
+     * ),
+     *  @OA\Response(
+     * response=422,
+     * description="Unprocessable Entity"
+     * ),
+     *  @OA\Response(
+     * response=500,
+     * description="Internal server error"
+     * ),
+     * )
+     */
+
     public function show($product_uuid)
     {
         try {
@@ -106,6 +234,60 @@ class ProductsController extends Controller
     /**
      * Update the specified resource in storage.
      */
+
+    /**
+     * @OA\Put(
+     * path="/product/{product_uuid}",
+     * summary="update product",
+     * description="update product",
+     * tags={"Products"},
+     * @OA\Parameter(
+     *          name="product_uuid",
+     *          description="product id",
+     *          required=true,
+     *          in="path",
+     *
+     *      ),
+     * @OA\RequestBody(
+     *    required=true,
+     *    description="Pass required product details",
+     *    @OA\JsonContent(
+     *       required={"title","price","category_id","description","metadata"},
+     *       @OA\Property(property="title", type="string", example="dog chain edited"),
+     *       @OA\Property(property="price", type="number", example="200"),
+     *     @OA\Property(property="category_id", type="string", example=""),
+     *     @OA\Property(property="description", type="string", example="best for cats as well as dogs"),
+     *    @OA\Property(property="metadata", type="object", example={"brand":"98e61f3e-ecdsdsb0-4286-83a2-fba964a7a6b6"}),
+     *
+     * ),
+     * ),
+    @OA\Response(
+     * response=200,
+     * description="Successfull (Ok)",
+     * ),
+     * @OA\Response(
+     * response=403,
+     * description="Forbidden"
+     * ),
+     *
+     * @OA\Response(
+     * response=401,
+     * description="Unauthenticated"
+     * ),
+     * @OA\Response(
+     * response=404,
+     * description="Page not found"
+     * ),
+     *  @OA\Response(
+     * response=422,
+     * description="Unprocessable Entity"
+     * ),
+     *  @OA\Response(
+     * response=500,
+     * description="Internal server error"
+     * ),
+     * )
+     */
     public function update(ProductsRequest $request,  $product_uuid)
     {
         try {
@@ -132,6 +314,48 @@ class ProductsController extends Controller
 
     /**
      * Remove the specified resource from storage.
+     */
+
+    /**
+     * @OA\Delete(
+     * path="/product/{product_uuid}",
+     * summary="delete a product",
+     * description="delete product",
+     * tags={"Products"},
+     * @OA\Parameter(
+     *          name="product_uuid",
+     *          description="product id",
+     *          required=true,
+     *          in="path",
+     *
+     *      ),
+     *
+    @OA\Response(
+     * response=200,
+     * description="Successfull (Ok)",
+     * ),
+     * @OA\Response(
+     * response=403,
+     * description="Forbidden"
+     * ),
+     *
+     * @OA\Response(
+     * response=401,
+     * description="Unauthenticated"
+     * ),
+     * @OA\Response(
+     * response=404,
+     * description="Page not found"
+     * ),
+     *  @OA\Response(
+     * response=422,
+     * description="Unprocessable Entity"
+     * ),
+     *  @OA\Response(
+     * response=500,
+     * description="Internal server error"
+     * ),
+     * )
      */
     public function destroy($product_uuid)
     {

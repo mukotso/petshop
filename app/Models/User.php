@@ -13,6 +13,7 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable, HasUuids;
 
+
     /**
      * The attributes that are mass assignable.
      *
@@ -27,6 +28,7 @@ class User extends Authenticatable
         'address',
         'phone_number'
     ];
+
 
     /**
      * The attributes that should be hidden for serialization.
@@ -45,6 +47,8 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'created_at' => 'datetime:d/m/Y h:i a',
+        'updated_at' => 'datetime:d/m/Y h:i a',
     ];
 
     public function scopeNonAdmin($query){

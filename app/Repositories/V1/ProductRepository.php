@@ -28,7 +28,8 @@ class ProductRepository implements ProductInterface
     public function updateProductDetails(array $product_details, $product_uuid)
     {
         $product = Product::findorFail($product_uuid);
-        return $product->update($product_details);
+        $product->update($product_details);
+        return $product;
     }
 
     public function deleteProduct($product_uuid)
