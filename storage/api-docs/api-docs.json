@@ -76,6 +76,324 @@
                 }
             }
         },
+        "/categories": {
+            "get": {
+                "tags": [
+                    "Categories"
+                ],
+                "summary": "List all categories",
+                "description": "view all categories",
+                "operationId": "58e7ab6c088418754073d6b09d416270",
+                "responses": {
+                    "200": {
+                        "description": "Successfull (Ok)"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "404": {
+                        "description": "Page not found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
+        "/category/create": {
+            "post": {
+                "tags": [
+                    "Categories"
+                ],
+                "summary": "Create  a category",
+                "description": " create a category",
+                "operationId": "b406678eede8e6d0e07ab7e00135628d",
+                "requestBody": {
+                    "description": "Pass required category details",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "title",
+                                    "slug"
+                                ],
+                                "properties": {
+                                    "title": {
+                                        "type": "string",
+                                        "example": "family"
+                                    },
+                                    "slug": {
+                                        "type": "string",
+                                        "example": "fm"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successfull (Ok)"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "404": {
+                        "description": "Page not found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
+        "/category/{category_uuid}": {
+            "get": {
+                "tags": [
+                    "Categories"
+                ],
+                "summary": "view a single category",
+                "description": "view a category",
+                "operationId": "1dcf0874cb979ddf6682be4a8c0b2dd1",
+                "parameters": [
+                    {
+                        "name": "category_uuid",
+                        "in": "path",
+                        "description": "category id",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successfull (Ok)"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "404": {
+                        "description": "Page not found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Categories"
+                ],
+                "summary": "update a  category",
+                "description": "update a category",
+                "operationId": "cac51d0417e13391fb642aa962ec065e",
+                "parameters": [
+                    {
+                        "name": "category_uuid",
+                        "in": "path",
+                        "description": "category id",
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "description": "Pass required category details",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "title",
+                                    "slug"
+                                ],
+                                "properties": {
+                                    "title": {
+                                        "type": "string",
+                                        "example": "family edited"
+                                    },
+                                    "slug": {
+                                        "type": "string",
+                                        "example": "fm ed"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successfull (Ok)"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "404": {
+                        "description": "Page not found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Categories"
+                ],
+                "summary": "delete a single category",
+                "description": "delete a category",
+                "operationId": "f6eab9d31866559a444cc0e8b8bfe817",
+                "parameters": [
+                    {
+                        "name": "category_uuid",
+                        "in": "path",
+                        "description": "category id",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successfull (Ok)"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "404": {
+                        "description": "Page not found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
+        "/main/blog": {
+            "get": {
+                "tags": [
+                    "Main Page"
+                ],
+                "summary": "List all blogs",
+                "description": " view all blogs",
+                "operationId": "11b13303f385fabd5ad00463e0275800",
+                "responses": {
+                    "200": {
+                        "description": "Successfull (Ok)"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "404": {
+                        "description": "Page not found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
+        "/main/blog/{blog_uuid}": {
+            "get": {
+                "tags": [
+                    "Main Page"
+                ],
+                "summary": "view a single blog",
+                "description": "view a blog",
+                "operationId": "8ffc71d837feae92b3a973192a070a28",
+                "parameters": [
+                    {
+                        "name": "blog_uuid",
+                        "in": "path",
+                        "description": "blog id",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successfull (Ok)"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "404": {
+                        "description": "Page not found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
+        "/main/promotions": {
+            "get": {
+                "tags": [
+                    "Main Page"
+                ],
+                "summary": "List all promotions",
+                "description": " view all promotions",
+                "operationId": "ba7d3e99826451d580f7b525b72a8c94",
+                "responses": {
+                    "200": {
+                        "description": "Successfull (Ok)"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "404": {
+                        "description": "Page not found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
         "/admin/user-listing": {
             "get": {
                 "tags": [
@@ -248,7 +566,6 @@
                                     "first_name",
                                     "last_name",
                                     "email",
-                                    "password",
                                     "address",
                                     "phone_number"
                                 ],
@@ -264,12 +581,7 @@
                                     "email": {
                                         "type": "string",
                                         "format": "email",
-                                        "example": "user@gmail"
-                                    },
-                                    "password": {
-                                        "type": "string",
-                                        "format": "password",
-                                        "example": "password"
+                                        "example": "useredited@gmail"
                                     },
                                     "address": {
                                         "type": "string",
