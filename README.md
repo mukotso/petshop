@@ -65,7 +65,7 @@ php artisan l5-swagger:generate
 ```
 
 View the swagger documentation in below url
-[http:](http://localhost:8082/api/petshop-documentation)
+[Petshop Documentation](http://localhost:8082/api/petshop-documentation)
 
 ## Running Test
 
