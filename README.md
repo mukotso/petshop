@@ -1,4 +1,6 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://www.google.com/imgres?imgurl=https%3A%2F%2Fst.depositphotos.com%2F1031343%2F2194%2Fv%2F600%2Fdepositphotos_21949883-stock-illustration-pet-shop-stamp.jpg&tbnid=Y-N-TnkRELl1BM&vet=12ahUKEwj_pPDMh6L-AhVenCcCHQlhCNEQMygJegUIARCBAg..i&imgrefurl=https%3A%2F%2Fdepositphotos.com%2Fvector-images%2Fpet-shop.html&docid=XsdEtOxWQuO1xM&w=600&h=600&q=petshop&ved=2ahUKEwj_pPDMh6L-AhVenCcCHQlhCNEQMygJegUIARCBAg" width="400" alt="Petshop"></a></p>
+
+
 
 # buckhill-petshop
 
