@@ -53,6 +53,18 @@ php artisan migrate
 php artisan db:seed
 ```
 
+## Generate IDE Helper
+Run the following command inside the container.
+```bash
+php artisan ide-helper:generate
+```
+## Larastan and PHP Insights
+Run the following command inside the container.
+
+```bash
+ php php artisan insights
+```
+
 ## Default Login Credentials
 Admin Email:  admin@buckhill.co.uk
 Admin Password: admin
@@ -66,6 +78,8 @@ php artisan l5-swagger:generate
 
 View the swagger documentation in below url
 [Petshop Documentation](http://localhost:8082/api/petshop-documentation)
+
+
 
 ## Running Test
 
