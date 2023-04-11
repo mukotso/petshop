@@ -27,7 +27,7 @@ Route::post('admin/login', [ApiAuthController::class, 'login'])->name('login');
 Route::post('user/login', [ApiAuthController::class, 'login']);
 
 Route::group(['middleware' => ['json.response']], function () {
-//Route::middleware('auth', 'has_admin_access')->group(function () {
+//Route::middleware( 'jwt','has_admin_access')->group(function () {
 //admin routes
     Route::prefix('admin')->group(function () {
         Route::post('/create', [UsersController::class, 'create'])->name('user.create');
@@ -38,7 +38,6 @@ Route::group(['middleware' => ['json.response']], function () {
     });
 //});
 
-//Route::middleware('auth', 'has_user_access')->group(function () {
 
 //main page Routes
     Route::prefix('main')->group(function () {
