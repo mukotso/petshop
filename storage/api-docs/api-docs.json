@@ -516,6 +516,444 @@
                 }
             }
         },
+        "/order-statuses": {
+            "get": {
+                "tags": [
+                    "Order Status"
+                ],
+                "summary": "List all order status",
+                "description": "view all status",
+                "operationId": "ef4d5d88809d84bc8756e1515b2389e7",
+                "responses": {
+                    "200": {
+                        "description": "Successfull (Ok)"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "404": {
+                        "description": "Page not found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
+        "/order-status/create": {
+            "post": {
+                "tags": [
+                    "Order Status"
+                ],
+                "summary": "Create order status",
+                "description": " create a status",
+                "operationId": "74900894150be5d6b971599db6a8577c",
+                "requestBody": {
+                    "description": "Pass required order status details",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "title"
+                                ],
+                                "properties": {
+                                    "title": {
+                                        "type": "string",
+                                        "example": "pending"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successfull (Ok)"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "404": {
+                        "description": "Page not found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
+        "/order-status/{order_status_uuid}": {
+            "get": {
+                "tags": [
+                    "Order Status"
+                ],
+                "summary": "view a single status",
+                "description": "view a status",
+                "operationId": "5abc5072e40a0cbe7ed5530937c82e54",
+                "parameters": [
+                    {
+                        "name": "order_status_uuid",
+                        "in": "path",
+                        "description": "status id",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successfull (Ok)"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "404": {
+                        "description": "Page not found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Order Status"
+                ],
+                "summary": "update order status",
+                "description": "update order status",
+                "operationId": "c6266a541a970827024e5d134925ac72",
+                "parameters": [
+                    {
+                        "name": "order_status_uuid",
+                        "in": "path",
+                        "description": "status id",
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "description": "Pass required order status details",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "title"
+                                ],
+                                "properties": {
+                                    "title": {
+                                        "type": "string",
+                                        "example": "paid"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successfull (Ok)"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "404": {
+                        "description": "Page not found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Order Status"
+                ],
+                "summary": "delete order status",
+                "description": "delete order status",
+                "operationId": "4e6e6421b17223b16e7c8957690f5a7f",
+                "parameters": [
+                    {
+                        "name": "order_status_uuid",
+                        "in": "path",
+                        "description": "status id",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successfull (Ok)"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "404": {
+                        "description": "Page not found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
+        "/payments": {
+            "get": {
+                "tags": [
+                    "Payments"
+                ],
+                "summary": "List all pyments",
+                "description": "view all pyments",
+                "operationId": "536b45903fb73f2b5064e53557556d37",
+                "responses": {
+                    "200": {
+                        "description": "Successfull (Ok)"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "404": {
+                        "description": "Page not found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
+        "/payment/create": {
+            "post": {
+                "tags": [
+                    "Payments"
+                ],
+                "summary": "Create  a payment",
+                "description": " create payment",
+                "operationId": "36bbbfbb00cc439f86a06dd73253cf25",
+                "requestBody": {
+                    "description": "Pass required payment details",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "title",
+                                    "details"
+                                ],
+                                "properties": {
+                                    "type": {
+                                        "type": "string",
+                                        "example": "cash"
+                                    },
+                                    "details": {
+                                        "type": "object",
+                                        "example": {
+                                            "address": "4035 O Reilly Causeway East Imaniton WY 32158-8199",
+                                            "last_name": "Corkery",
+                                            "first_name": "Karson"
+                                        }
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successfull (Ok)"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "404": {
+                        "description": "Page not found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
+        "/payment/{payment_uuid}": {
+            "get": {
+                "tags": [
+                    "Payments"
+                ],
+                "summary": "view payment",
+                "description": "view a payment",
+                "operationId": "6bf91c3c325b5904e6a1918f6a4782a5",
+                "parameters": [
+                    {
+                        "name": "payment_uuid",
+                        "in": "path",
+                        "description": "payment id",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successfull (Ok)"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "404": {
+                        "description": "Page not found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Payments"
+                ],
+                "summary": "update payment",
+                "description": "update payment",
+                "operationId": "40cf0524e8a3276faa5769d5f8d4c8ff",
+                "parameters": [
+                    {
+                        "name": "payment_uuid",
+                        "in": "path",
+                        "description": "payment id",
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "description": "Pass required payment details",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "title",
+                                    "details"
+                                ],
+                                "properties": {
+                                    "type": {
+                                        "type": "string",
+                                        "example": "bank transfer"
+                                    },
+                                    "details": {
+                                        "type": "object",
+                                        "example": {
+                                            "address": "4035 O Reilly Causeway East Imaniton WY 32158-8199",
+                                            "last_name": "Corkery",
+                                            "first_name": "Karson"
+                                        }
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successfull (Ok)"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "404": {
+                        "description": "Page not found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Payments"
+                ],
+                "summary": "delete payment",
+                "description": "delete a payment",
+                "operationId": "e9d77d61965fa754fd01738a2bca7a63",
+                "parameters": [
+                    {
+                        "name": "payment_uuid",
+                        "in": "path",
+                        "description": "payment id",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successfull (Ok)"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "404": {
+                        "description": "Page not found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
         "/main/blog": {
             "get": {
                 "tags": [
@@ -559,6 +997,260 @@
                         "name": "blog_uuid",
                         "in": "path",
                         "description": "blog id",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successfull (Ok)"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "404": {
+                        "description": "Page not found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
+        "/products": {
+            "get": {
+                "tags": [
+                    "Products"
+                ],
+                "summary": "List all products",
+                "description": "view all products",
+                "operationId": "4a64e741963a31c6d1d522510958853b",
+                "responses": {
+                    "200": {
+                        "description": "Successfull (Ok)"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "404": {
+                        "description": "Page not found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
+        "/product/create": {
+            "post": {
+                "tags": [
+                    "Products"
+                ],
+                "summary": "Create  product",
+                "description": " create product",
+                "operationId": "bbf1f7bb4b29204f979890b369333d1d",
+                "requestBody": {
+                    "description": "Pass required product details",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "title",
+                                    "price",
+                                    "category_id",
+                                    "description",
+                                    "metadata"
+                                ],
+                                "properties": {
+                                    "title": {
+                                        "type": "string",
+                                        "example": "dog chain"
+                                    },
+                                    "price": {
+                                        "type": "number",
+                                        "example": "400"
+                                    },
+                                    "category_id": {
+                                        "type": "string",
+                                        "example": " "
+                                    },
+                                    "description": {
+                                        "type": "string",
+                                        "example": "best for cats"
+                                    },
+                                    "metadata": {
+                                        "type": "object",
+                                        "example": {
+                                            "brand": "98e61f3e-ecb0-4286-83a2-fba964a7a6b6"
+                                        }
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successfull (Ok)"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "404": {
+                        "description": "Page not found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
+        "/product/{product_uuid}": {
+            "get": {
+                "tags": [
+                    "Products"
+                ],
+                "summary": "view a single product",
+                "description": "view product",
+                "operationId": "521e1999fb1312fb148029bfee0c0f79",
+                "parameters": [
+                    {
+                        "name": "product_uuid",
+                        "in": "path",
+                        "description": "product id",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successfull (Ok)"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "404": {
+                        "description": "Page not found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Products"
+                ],
+                "summary": "update product",
+                "description": "update product",
+                "operationId": "b4c59383623627bc22771cc1e600e960",
+                "parameters": [
+                    {
+                        "name": "product_uuid",
+                        "in": "path",
+                        "description": "product id",
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "description": "Pass required product details",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "title",
+                                    "price",
+                                    "category_id",
+                                    "description",
+                                    "metadata"
+                                ],
+                                "properties": {
+                                    "title": {
+                                        "type": "string",
+                                        "example": "dog chain edited"
+                                    },
+                                    "price": {
+                                        "type": "number",
+                                        "example": "200"
+                                    },
+                                    "category_id": {
+                                        "type": "string",
+                                        "example": ""
+                                    },
+                                    "description": {
+                                        "type": "string",
+                                        "example": "best for cats as well as dogs"
+                                    },
+                                    "metadata": {
+                                        "type": "object",
+                                        "example": {
+                                            "brand": "98e61f3e-ecdsdsb0-4286-83a2-fba964a7a6b6"
+                                        }
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successfull (Ok)"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "404": {
+                        "description": "Page not found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Products"
+                ],
+                "summary": "delete a product",
+                "description": "delete product",
+                "operationId": "5a4a319feadb759061776f8f92918c85",
+                "parameters": [
+                    {
+                        "name": "product_uuid",
+                        "in": "path",
+                        "description": "product id",
                         "required": true
                     }
                 ],

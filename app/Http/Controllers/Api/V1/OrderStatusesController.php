@@ -20,6 +20,42 @@ class OrderStatusesController extends Controller
     /**
      * Display a listing of the resource.
      */
+
+
+    /**
+     * @OA\Get(
+     * path="/order-statuses",
+     * summary="List all order status",
+     * description="view all status",
+     * tags={"Order Status"},
+     *
+    @OA\Response(
+     * response=200,
+     * description="Successfull (Ok)",
+     * ),
+     * @OA\Response(
+     * response=403,
+     * description="Forbidden"
+     * ),
+     *
+     * @OA\Response(
+     * response=401,
+     * description="Unauthenticated"
+     * ),
+     * @OA\Response(
+     * response=404,
+     * description="Page not found"
+     * ),
+     *  @OA\Response(
+     * response=422,
+     * description="Unprocessable Entity"
+     * ),
+     *  @OA\Response(
+     * response=500,
+     * description="Internal server error"
+     * ),
+     * )
+     */
     public function index()
     {
         try {
@@ -46,6 +82,49 @@ class OrderStatusesController extends Controller
 
     /**
      * Show the form for creating a new resource.
+     */
+
+    /**
+     * @OA\Post(
+     * path="/order-status/create",
+     * summary="Create order status",
+     * description=" create a status",
+     * tags={"Order Status"},
+     * @OA\RequestBody(
+     *    required=true,
+     *    description="Pass required order status details",
+     *    @OA\JsonContent(
+     *       required={"title"},
+     *       @OA\Property(property="title", type="string", example="pending"),
+     *    ),
+     * ),
+     *
+    @OA\Response(
+     * response=200,
+     * description="Successfull (Ok)",
+     * ),
+     * @OA\Response(
+     * response=403,
+     * description="Forbidden"
+     * ),
+     *
+     * @OA\Response(
+     * response=401,
+     * description="Unauthenticated"
+     * ),
+     * @OA\Response(
+     * response=404,
+     * description="Page not found"
+     * ),
+     *  @OA\Response(
+     * response=422,
+     * description="Unprocessable Entity"
+     * ),
+     *  @OA\Response(
+     * response=500,
+     * description="Internal server error"
+     * ),
+     * )
      */
     public function create(OrderStatusesRequest $request)
     {
@@ -74,6 +153,48 @@ class OrderStatusesController extends Controller
 
     /**
      * Display the specified resource.
+     */
+
+    /**
+     * @OA\Get(
+     * path="/order-status/{order_status_uuid}",
+     * summary="view a single status",
+     * description="view a status",
+     * tags={"Order Status"},
+     * @OA\Parameter(
+     *          name="order_status_uuid",
+     *          description="status id",
+     *          required=true,
+     *          in="path",
+     *
+     *      ),
+     *
+    @OA\Response(
+     * response=200,
+     * description="Successfull (Ok)",
+     * ),
+     * @OA\Response(
+     * response=403,
+     * description="Forbidden"
+     * ),
+     *
+     * @OA\Response(
+     * response=401,
+     * description="Unauthenticated"
+     * ),
+     * @OA\Response(
+     * response=404,
+     * description="Page not found"
+     * ),
+     *  @OA\Response(
+     * response=422,
+     * description="Unprocessable Entity"
+     * ),
+     *  @OA\Response(
+     * response=500,
+     * description="Internal server error"
+     * ),
+     * )
      */
     public function show($order_status_uuid)
     {
@@ -104,6 +225,56 @@ class OrderStatusesController extends Controller
     /**
      * Update the specified resource in storage.
      */
+
+    /**
+     * @OA\Put(
+     * path="/order-status/{order_status_uuid}",
+     * summary="update order status",
+     * description="update order status",
+     * tags={"Order Status"},
+     * @OA\Parameter(
+     *          name="order_status_uuid",
+     *          description="status id",
+     *          required=true,
+     *          in="path",
+     *
+     *      ),
+     *
+     *  @OA\RequestBody(
+     *    required=true,
+     *    description="Pass required order status details",
+     *    @OA\JsonContent(
+     *       required={"title"},
+     *       @OA\Property(property="title", type="string", example="paid"),
+     *    ),
+     * ),
+    @OA\Response(
+     * response=200,
+     * description="Successfull (Ok)",
+     * ),
+     * @OA\Response(
+     * response=403,
+     * description="Forbidden"
+     * ),
+     *
+     * @OA\Response(
+     * response=401,
+     * description="Unauthenticated"
+     * ),
+     * @OA\Response(
+     * response=404,
+     * description="Page not found"
+     * ),
+     *  @OA\Response(
+     * response=422,
+     * description="Unprocessable Entity"
+     * ),
+     *  @OA\Response(
+     * response=500,
+     * description="Internal server error"
+     * ),
+     * )
+     */
     public function update(OrderStatusesRequest $request,  $order_status_uuid)
     {
         try {
@@ -128,6 +299,48 @@ class OrderStatusesController extends Controller
 
     /**
      * Remove the specified resource from storage.
+     */
+
+    /**
+     * @OA\Delete(
+     * path="/order-status/{order_status_uuid}",
+     * summary="delete order status",
+     * description="delete order status",
+     * tags={"Order Status"},
+     * @OA\Parameter(
+     *          name="order_status_uuid",
+     *          description="status id",
+     *          required=true,
+     *          in="path",
+     *
+     *      ),
+     *
+    @OA\Response(
+     * response=200,
+     * description="Successfull (Ok)",
+     * ),
+     * @OA\Response(
+     * response=403,
+     * description="Forbidden"
+     * ),
+     *
+     * @OA\Response(
+     * response=401,
+     * description="Unauthenticated"
+     * ),
+     * @OA\Response(
+     * response=404,
+     * description="Page not found"
+     * ),
+     *  @OA\Response(
+     * response=422,
+     * description="Unprocessable Entity"
+     * ),
+     *  @OA\Response(
+     * response=500,
+     * description="Internal server error"
+     * ),
+     * )
      */
     public function destroy( $order_status_uuid)
     {
