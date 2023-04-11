@@ -10,13 +10,7 @@ use Illuminate\Support\Facades\Route;
 
 class RouteServiceProvider extends ServiceProvider
 {
-    /**
-     * The path to the "home" route for your application.
-     *
-     * Typically, users are redirected here after authentication.
-     *
-     * @var string
-     */
+
     public const HOME = '/home';
     /** @var string $apiNamespace */
     protected $apiNamespace = 'App\Http\Controllers\Api';
@@ -34,7 +28,7 @@ class RouteServiceProvider extends ServiceProvider
                 'middleware' => ['api', 'api_version:v1'],
                 'namespace'  => "{$this->apiNamespace}\V1",
                 'prefix'     => 'api/v1',
-            ], function ($router) {
+            ], function () {
                 require base_path('routes/api_v1.php');
             });
 
