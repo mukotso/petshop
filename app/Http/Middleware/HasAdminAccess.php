@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\User;
 use Closure;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,8 @@ class HasAdminAccess{
      * @return mixed
      */
     public function handle(Request $request, Closure $next) {
-        if (Auth::check() && Auth::user()->is_admin)  {
+        $user =User::find($request->jwt->sub);
+        if ($user->is_admin)  {
             return $next($request);
         }
             return response(["message" => "Permission Denied"], 401);

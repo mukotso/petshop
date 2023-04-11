@@ -41,7 +41,7 @@ class Kernel extends HttpKernel
         'api' => [
             'json.response',
             // \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
-            \Illuminate\Routing\Middleware\ThrottleRequests::class.':api',
+            \Illuminate\Routing\Middleware\ThrottleRequests::class . ':api',
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
     ];
@@ -68,5 +68,6 @@ class Kernel extends HttpKernel
         'has_admin_access' => \App\Http\Middleware\HasAdminAccess::class,
         'has_user_access' => \App\Http\Middleware\HasUserAccess::class,
         'json.response' => \App\Http\Middleware\ForceJsonResponse::class,
+        'jwt' => \App\Http\Middleware\JwtMiddleware::class,
     ];
 }

@@ -66,12 +66,13 @@ class ApiAuthController extends Controller
                 $domain = Request::server("HTTP_HOST");
 
                 $privateKey = file_get_contents('../openssl/private.pem');
+
                 // Set the token payload
                 $payload = [
                     'iss' => $domain,
                     'sub' => $user->id,
                 ];
-
+                auth()->login($user);
                 // Generate the token
                 $token = JWT::encode($payload, $privateKey, 'RS256');
                 return response()->json([
