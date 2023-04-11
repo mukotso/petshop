@@ -76,6 +76,226 @@
                 }
             }
         },
+        "/brands": {
+            "get": {
+                "tags": [
+                    "Brands"
+                ],
+                "summary": "List all brands",
+                "description": " view all brands",
+                "operationId": "d304926c5aa931e054d1a6c102135ad8",
+                "responses": {
+                    "200": {
+                        "description": "Successfull (Ok)"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "404": {
+                        "description": "Page not found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
+        "/brand/create": {
+            "post": {
+                "tags": [
+                    "Brands"
+                ],
+                "summary": "Create  a brand",
+                "description": " create a brand",
+                "operationId": "b8cd85df1cba97c3307254cbf1a71dfb",
+                "requestBody": {
+                    "description": "Pass required brand details",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "title",
+                                    "slug"
+                                ],
+                                "properties": {
+                                    "title": {
+                                        "type": "string",
+                                        "example": "test brand"
+                                    },
+                                    "slug": {
+                                        "type": "string",
+                                        "example": "test"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successfull (Ok)"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "404": {
+                        "description": "Page not found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
+        "/brand/{brand_uuid}": {
+            "get": {
+                "tags": [
+                    "Brands"
+                ],
+                "summary": "view a single brand",
+                "description": "view a brand",
+                "operationId": "91fe90c7b04cf361090c7be8dcb66d23",
+                "parameters": [
+                    {
+                        "name": "brand_uuid",
+                        "in": "path",
+                        "description": "brand id",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successfull (Ok)"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "404": {
+                        "description": "Page not found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Brands"
+                ],
+                "summary": "update a  brand",
+                "description": "update a brand",
+                "operationId": "563b41d3ab40cfb65c6fe07a044bb0b9",
+                "parameters": [
+                    {
+                        "name": "brand_uuid",
+                        "in": "path",
+                        "description": "brand id",
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "description": "Pass required brand details",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "title",
+                                    "slug"
+                                ],
+                                "properties": {
+                                    "title": {
+                                        "type": "string",
+                                        "example": "edited brand"
+                                    },
+                                    "slug": {
+                                        "type": "string",
+                                        "example": " edited slug"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successfull (Ok)"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "404": {
+                        "description": "Page not found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Brands"
+                ],
+                "summary": "delete a single category",
+                "description": "delete a category",
+                "operationId": "cfba08441363a7ce659cca46f2d60b7f",
+                "parameters": [
+                    {
+                        "name": "brand_uuid",
+                        "in": "path",
+                        "description": "brand id",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successfull (Ok)"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "404": {
+                        "description": "Page not found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
         "/categories": {
             "get": {
                 "tags": [

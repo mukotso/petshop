@@ -27,7 +27,8 @@ class CategoryRepository implements CategoryInterface
     public function updateCategoryDetails(array $updated_category_details , $category_uuid)
     {
         $category = Category::findorFail($category_uuid);
-        return $category->update($updated_category_details);
+        $category->update($updated_category_details);
+        return $category;
     }
 
     public function deleteCategory($category_uuid)

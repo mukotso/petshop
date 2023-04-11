@@ -29,7 +29,8 @@ class OrderStatusRepository implements OrderStatusInterface
     public function updateOrderStatusDetails(array $order_status_details , $order_status_uuid)
     {
         $order_status = OrderStatus::findorFail($order_status_uuid);
-        return $order_status->update($order_status_details);
+        $order_status->update($order_status_details);
+        return $order_status;
     }
 
     public function deleteOrderStatus($order_status_uuid)
