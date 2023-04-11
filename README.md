@@ -70,11 +70,6 @@ Admin Email:  admin@buckhill.co.uk
 Admin Password: admin
 
 
-## Generating Swagger API Documentation
-Run this command.
-```bash
-php artisan l5-swagger:generate
-```
 
 View the swagger documentation in below url
 [Petshop Documentation](http://localhost:8082/api/petshop-documentation)
