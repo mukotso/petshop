@@ -62,7 +62,7 @@ php artisan ide-helper:generate
 Run the following command inside the container.
 
 ```bash
- php php artisan insights
+  php artisan insights
 ```
 
 ## Default Login Credentials
