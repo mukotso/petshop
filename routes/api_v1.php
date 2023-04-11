@@ -56,7 +56,7 @@ Route::group(['middleware' => ['json.response']], function () {
 
 //categories Routes
     Route::get('categories', [CategoriesController::class, 'index'])->name('categories.index');
-    Route::get('category/create', [CategoriesController::class, 'create'])->name('category.create');
+    Route::post('category/create', [CategoriesController::class, 'create'])->name('category.create');
     Route::get('category/{category_uuid}', [CategoriesController::class, 'show'])->name('category.show');
     Route::put('category/{category_uuid}', [CategoriesController::class, 'update'])->name('category.update');
     Route::delete('category/{category_uuid}', [CategoriesController::class, 'destroy'])->name('category.delete');

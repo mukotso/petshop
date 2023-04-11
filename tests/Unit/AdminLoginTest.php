@@ -20,6 +20,7 @@ class AdminLoginTest extends TestCase
             ->assertStatus(404);
     }
 
+    /** @test */
     public function admin_user_require_password_to_login(): void
     {
         $this->post(route('login'), [
@@ -28,7 +29,7 @@ class AdminLoginTest extends TestCase
         )->assertStatus(422);
     }
 
-
+    /** @test */
     public function admin_user_require_email_to_login(): void
     {
         $this->post(route('login'), [
