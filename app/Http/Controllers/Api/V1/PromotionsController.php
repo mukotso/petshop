@@ -2,11 +2,8 @@
 
 namespace App\Http\Controllers\Api\V1;
 
-use App\Http\Resources\V1\BrandResource;
 use App\Http\Resources\V1\PromotionResource;
-use App\Interfaces\V1\PromotionInterface;
-use App\Models\Promotion;
-use Illuminate\Http\Request;
+use App\Interfaces\V1\PromotionInterface;;
 use Illuminate\Support\Facades\Log;
 
 class PromotionsController extends Controller
@@ -28,7 +25,7 @@ class PromotionsController extends Controller
             $promotions = $this->promotionRepository->getAllPromotions();
             return response(
                 [
-                    'brands' => PromotionResource::collection($promotions),
+                    'promotions' => PromotionResource::collection($promotions),
                     'message' => 'Promotions Retrieved successfully'
                 ]
                 , 200
@@ -38,7 +35,6 @@ class PromotionsController extends Controller
             Log::error($e);
             return response(
                 [
-                    [],
                     'message' => 'An error occurred ,Please try again'
                 ]
                 , 500

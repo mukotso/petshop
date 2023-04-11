@@ -4,11 +4,10 @@ namespace App\Http\Controllers\Api\V1;
 
 
 use App\Http\Requests\UserLoginRequest;
-use App\Http\Requests\UserRegistrationRequest;
 use App\Models\User;
 use Firebase\JWT\JWT;
-use Illuminate\Support\Facades\Hash;
-
+use Illuminate\Support\Facades\Auth;
+use Request;
 
 
 class ApiAuthController extends Controller
@@ -19,22 +18,18 @@ class ApiAuthController extends Controller
         if (User::where('email', '=', $request->email)->exists()) {
             $user = User::where('email', '=', $request->email)->first();
 
-            if (Hash::check($request->password, $user->password)) {
-                $host = parse_url($request->url(), PHP_URL_HOST);
-                $domain = explode('.', $host)[count(explode('.', $host)) - 2] . '.' . explode('.', $host)[count(
-                        explode('.', $host)
-                    ) - 1];
+            if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
+                $domain = Request::server("HTTP_HOST");
 
-
+                $privateKey = file_get_contents('../openssl/private.pem');
                 // Set the token payload
                 $payload = [
                     'iss' => $domain,
-                    'sub' => $user->uuid,
+                    'sub' => $user->id,
                 ];
 
                 // Generate the token
-                $token = JWT::encode($payload, config('jwt.key'), 'RS256');
-
+                $token = JWT::encode($payload, $privateKey, 'RS256');
                 return response()->json([
                     'success' => true,
                     'message' => 'User Logged In Succesfully!',

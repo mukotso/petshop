@@ -30,7 +30,7 @@ abstract class TestCase extends BaseTestCase
         $user = $this->user = User::query()
             ->where('is_admin', true)
             ->first();
-        $this->actingAs($user, 'jwt');
+        $this->actingAs($user);
     }
 
     /**
@@ -40,6 +40,6 @@ abstract class TestCase extends BaseTestCase
     {
         /** @var Authenticatable $user */
         $user = $this->user = User::query()->first();
-        $this->actingAs($user, 'jwt');
+        $this->actingAs($user);
     }
 }

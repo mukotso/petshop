@@ -5,8 +5,7 @@ namespace App\Http\Controllers\Api\V1;
 use App\Http\Requests\UsersRequest;
 use App\Http\Resources\V1\UserResource;
 use App\Interfaces\V1\UserInterface;
-use App\Models\User;
-use Illuminate\Http\Request;
+use Log;
 
 class UsersController extends Controller
 {
@@ -38,7 +37,6 @@ class UsersController extends Controller
             Log::error($e);
             return response(
                 [
-                    [],
                     'message' => 'An error occurred ,Please try again'
                 ]
                 , 500
@@ -52,11 +50,11 @@ class UsersController extends Controller
     public function create(UsersRequest $request)
     {
         try {
-            $this->userRepository->createUser($request->all());
+           $user = $this->userRepository->createUser($request->all());
 
             return response(
                 [
-                    [],
+                    ['user' => new UserResource($user)],
                     'message' => 'User created successfully'
                 ]
                 , 200
@@ -66,7 +64,6 @@ class UsersController extends Controller
             Log::error($e);
             return response(
                 [
-                    [],
                     'message' => 'An error occurred ,Please try again'
                 ]
                 , 500
@@ -96,7 +93,6 @@ class UsersController extends Controller
             Log::error($e);
             return response(
                 [
-                    [],
                     'message' => 'An error occurred ,Please try again'
                 ]
                 , 500
@@ -115,7 +111,6 @@ class UsersController extends Controller
             $this->userRepository->updateUserDetails($request->all(), $user_uuid);
             return response(
                 [
-                    [],
                     'message' => 'User details updated successfully'
                 ]
                 , 200
@@ -125,7 +120,6 @@ class UsersController extends Controller
             Log::error($e);
             return response(
                 [
-                    [],
                     'message' => 'An error occurred ,Please try again'
                 ]
                 , 500
@@ -143,7 +137,6 @@ class UsersController extends Controller
 
             return response(
                 [
-                    [],
                     'message' => 'User deleted successfully'
                 ]
                 , 200
@@ -153,7 +146,6 @@ class UsersController extends Controller
             Log::error($e);
             return response(
                 [
-                    [],
                     'message' => 'An error occurred ,Please try again'
                 ]
                 , 500

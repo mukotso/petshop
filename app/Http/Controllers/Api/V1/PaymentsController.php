@@ -38,7 +38,6 @@ class PaymentsController extends Controller
             Log::error($e);
             return response(
                 [
-                    [],
                     'message' => 'An error occurred ,Please try again'
                 ]
                 , 500
@@ -52,18 +51,18 @@ class PaymentsController extends Controller
     public function create(PaymentsRequest $request)
     {
         try {
-            $this->paymentRepository->createPayment($request->all());
+            $payment = $this->paymentRepository->createPayment($request->all());
 
             return response(
                 [
-                    [],
+                    'payment' => new PaymentResource($payment),
                     'message' => 'payment created successfully'
                 ]
                 , 200
             );
         } catch (\Exception $e) {
             //log exception
-            dd($e);
+            Log::error($e);
             return response(
                 [
                     'message' => 'An error occurred ,Please try again'
@@ -94,7 +93,6 @@ class PaymentsController extends Controller
             Log::error($e);
             return response(
                 [
-                    [],
                     'message' => 'An error occurred ,Please try again'
                 ]
                 , 500
@@ -112,7 +110,6 @@ class PaymentsController extends Controller
             $this->paymentRepository->updatePaymentDetails($request->all(), $payment_uuid);
             return response(
                 [
-                    [],
                     'message' => 'payment details updated successfully'
                 ]
                 , 200
@@ -122,7 +119,6 @@ class PaymentsController extends Controller
             Log::error($e);
             return response(
                 [
-                    [],
                     'message' => 'An error occurred ,Please try again'
                 ]
                 , 500
@@ -140,7 +136,6 @@ class PaymentsController extends Controller
 
             return response(
                 [
-                    [],
                     'message' => 'Payment deleted successfully'
                 ]
                 , 200
@@ -150,7 +145,6 @@ class PaymentsController extends Controller
             Log::error($e);
             return response(
                 [
-                    [],
                     'message' => 'An error occurred ,Please try again'
                 ]
                 , 500

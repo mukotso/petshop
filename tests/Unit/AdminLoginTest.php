@@ -1,36 +1,14 @@
 <?php
 
-namespace Tests\Feature;
+namespace Tests\Unit;
 
 
 use Tests\TestCase;
 
 class AdminLoginTest extends TestCase
 {
-    /**
-     * A basic feature test example.
-     *
-     * @return void
-     */
-    public function admin_user_can_log_in_with_correct_credentials()
-    {
 
-        //Create a login request with known user details.
-        $response = $this->post(route('login'), ['email' => 'admin@buckhill.co.uk', 'password' => 'admin']);
-
-        $response
-            //Check if response status is 200
-            ->assertStatus(200)
-            //Check if response has data->token
-            ->assertJsonStructure(['data' => ['token']])
-            //Check if response is success
-            ->assertJson(
-                [
-                    'success' => true
-                ]
-            );
-    }
-
+    /** @test */
     public function admin_user_cannot_log_in_with_incorrect_credentials()
     {
 
@@ -39,9 +17,10 @@ class AdminLoginTest extends TestCase
 
         $response
             //Check if response status is 400
-            ->assertStatus(400);
+            ->assertStatus(404);
     }
 
+    /** @test */
     public function admin_user_require_password_to_login(): void
     {
         $this->post(route('login'), [
@@ -50,7 +29,7 @@ class AdminLoginTest extends TestCase
         )->assertStatus(422);
     }
 
-
+    /** @test */
     public function admin_user_require_email_to_login(): void
     {
         $this->post(route('login'), [

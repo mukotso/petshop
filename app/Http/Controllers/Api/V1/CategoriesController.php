@@ -37,7 +37,6 @@ class CategoriesController extends Controller
             Log::error($e);
             return response(
                 [
-                    [],
                     'message' => 'An error occurred ,Please try again'
                 ]
                 , 500
@@ -51,11 +50,11 @@ class CategoriesController extends Controller
     public function create(CategoriesRequest $request)
     {
         try {
-            $this->categoryRepository->createCategory($request->all());
+           $category = $this->categoryRepository->createCategory($request->all());
 
             return response(
                 [
-                    [],
+                    'category' => new CategoryResource($category),
                     'message' => 'Category created successfully'
                 ]
                 , 200
@@ -65,7 +64,6 @@ class CategoriesController extends Controller
             Log::error($e);
             return response(
                 [
-                    [],
                     'message' => 'An error occurred ,Please try again'
                 ]
                 , 500
@@ -94,7 +92,6 @@ class CategoriesController extends Controller
             Log::error($e);
             return response(
                 [
-                    [],
                     'message' => 'An error occurred ,Please try again'
                 ]
                 , 500
@@ -113,7 +110,6 @@ class CategoriesController extends Controller
             $this->categoryRepository->updateCategoryDetails($request->all(), $category_uuid);
             return response(
                 [
-                    [],
                     'message' => 'Category details updated successfully'
                 ]
                 , 200
@@ -123,7 +119,6 @@ class CategoriesController extends Controller
             Log::error($e);
             return response(
                 [
-                    [],
                     'message' => 'An error occurred ,Please try again'
                 ]
                 , 500
@@ -141,7 +136,6 @@ class CategoriesController extends Controller
 
             return response(
                 [
-                    [],
                     'message' => 'Category deleted successfully'
                 ]
                 , 200
@@ -151,7 +145,6 @@ class CategoriesController extends Controller
             Log::error($e);
             return response(
                 [
-                    [],
                     'message' => 'An error occurred ,Please try again'
                 ]
                 , 500

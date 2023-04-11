@@ -51,11 +51,11 @@ class BrandsController extends Controller
     public function create(BrandsRequest $request)
     {
         try {
-            $this->brandRepository->createBrand($request->all());
+           $brand = $this->brandRepository->createBrand($request->all());
 
             return response(
                 [
-                    [],
+                    ['brand' => new BrandResource($brand)],
                     'message' => 'Brands created successfully'
                 ]
                 , 200
@@ -65,7 +65,6 @@ class BrandsController extends Controller
             Log::error($e);
             return response(
                 [
-                    [],
                     'message' => 'An error occurred ,Please try again'
                 ]
                 , 500
@@ -94,7 +93,6 @@ class BrandsController extends Controller
             Log::error($e);
             return response(
                 [
-                    [],
                     'message' => 'An error occurred ,Please try again'
                 ]
                 , 500
@@ -109,10 +107,10 @@ class BrandsController extends Controller
     public function update(BrandsRequest $request, $brand_uuid)
     {
         try {
-            $this->brandRepository->updateBrandDetails($request->all(), $brand_uuid);
+           $brand = $this->brandRepository->updateBrandDetails($request->all(), $brand_uuid);
             return response(
                 [
-                    [],
+                    'brand' => new BrandResource($brand),
                     'message' => 'Brands details updated successfully'
                 ]
                 , 200
@@ -122,7 +120,6 @@ class BrandsController extends Controller
             Log::error($e);
             return response(
                 [
-                    [],
                     'message' => 'An error occurred ,Please try again'
                 ]
                 , 500
@@ -140,7 +137,6 @@ class BrandsController extends Controller
 
             return response(
                 [
-                    [],
                     'message' => 'Brand deleted successfully'
                 ]
                 , 200
@@ -150,7 +146,6 @@ class BrandsController extends Controller
             Log::error($e);
             return response(
                 [
-                    [],
                     'message' => 'An error occurred ,Please try again'
                 ]
                 , 500
