@@ -51,7 +51,8 @@ class User extends Authenticatable
         'updated_at' => 'datetime:d/m/Y h:i a',
     ];
 
-    public function scopeNonAdmin($query){
-       return  $query->where('is_admin', false);
+    public function scopeNonAdmin($query)
+    {
+        return $query->where('is_admin', false);
     }
 }

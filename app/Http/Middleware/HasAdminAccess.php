@@ -16,8 +16,8 @@ class HasAdminAccess{
     public function handle(Request $request, Closure $next) {
         if (Auth::check() && Auth::user()->is_admin)  {
             return $next($request);
-        } else{
-            return response(["message" => "Permission Denied"], 401);
         }
+            return response(["message" => "Permission Denied"], 401);
+
     }
 }

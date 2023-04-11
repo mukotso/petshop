@@ -27,7 +27,7 @@ class BrandRepository implements BrandInterface
     {
         $brand = Brand::findorFail($brand_uuid);
         $brand->update($new_brand_details);
-        return  $brand;
+        return $brand;
     }
 
     public function deleteBrand($brand_uuid)

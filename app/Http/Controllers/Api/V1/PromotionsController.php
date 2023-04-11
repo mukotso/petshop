@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Resources\V1\PromotionResource;
-use App\Interfaces\V1\PromotionInterface;;
+use App\Interfaces\V1\PromotionInterface;
 use Illuminate\Support\Facades\Log;
 
 class PromotionsController extends Controller
