@@ -18,7 +18,7 @@ class ApiAuthController extends Controller
      * summary="Sign in a user",
      * description="Login by email, password",
      * operationId="authLogin",
-     * tags={"auth"},
+     * tags={"Admin end points"},
      * @OA\RequestBody(
      *    required=true,
      *    description="Pass user credentials",

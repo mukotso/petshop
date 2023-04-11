@@ -22,7 +22,7 @@
         "/admin/login": {
             "post": {
                 "tags": [
-                    "auth"
+                    "Admin end points"
                 ],
                 "summary": "Sign in a user",
                 "description": "Login by email, password",
@@ -54,6 +54,276 @@
                         }
                     }
                 },
+                "responses": {
+                    "200": {
+                        "description": "Successfull (Ok)"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "404": {
+                        "description": "Page not found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
+        "/admin/user-listing": {
+            "get": {
+                "tags": [
+                    "Admin end points"
+                ],
+                "summary": "List all users",
+                "description": "admin view all users",
+                "operationId": "c8fd3688bd81539f9790e59b6cdb37b3",
+                "responses": {
+                    "200": {
+                        "description": "Successfull (Ok)"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "404": {
+                        "description": "Page not found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
+        "/admin/create": {
+            "post": {
+                "tags": [
+                    "Admin end points"
+                ],
+                "summary": "Create  a user",
+                "description": "admin create a user account",
+                "operationId": "bc21d4bcc550ae132cf72c7d5700e12c",
+                "requestBody": {
+                    "description": "Pass required user details",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "first_name",
+                                    "last_name",
+                                    "email",
+                                    "password",
+                                    "address",
+                                    "phone_number"
+                                ],
+                                "properties": {
+                                    "first_name": {
+                                        "type": "string",
+                                        "example": "kelvin"
+                                    },
+                                    "last_name": {
+                                        "type": "string",
+                                        "example": "mukotso"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "format": "email",
+                                        "example": "user@gmail"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "format": "password",
+                                        "example": "password"
+                                    },
+                                    "address": {
+                                        "type": "string",
+                                        "example": "east kenya"
+                                    },
+                                    "phone_number": {
+                                        "type": "number",
+                                        "format": "tel",
+                                        "example": "0776756454"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successfull (Ok)"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "404": {
+                        "description": "Page not found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
+        "/admin/user-show/{user_uuid}": {
+            "get": {
+                "tags": [
+                    "Admin end points"
+                ],
+                "summary": "view a single user",
+                "description": "admin create a user account",
+                "operationId": "c494d2f4bd9de1dd1d4ed79e74000b7c",
+                "parameters": [
+                    {
+                        "name": "user_uuid",
+                        "in": "path",
+                        "description": "user id",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successfull (Ok)"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "404": {
+                        "description": "Page not found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
+        "/admin/user-edit/{user_uuid}": {
+            "put": {
+                "tags": [
+                    "Admin end points"
+                ],
+                "summary": "update user details",
+                "description": "admin update a user account",
+                "operationId": "bd5ff4f08def83edba14eb4ed96f39f6",
+                "parameters": [
+                    {
+                        "name": "user_uuid",
+                        "in": "path",
+                        "description": "user id",
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "description": "Pass required user details",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "first_name",
+                                    "last_name",
+                                    "email",
+                                    "password",
+                                    "address",
+                                    "phone_number"
+                                ],
+                                "properties": {
+                                    "first_name": {
+                                        "type": "string",
+                                        "example": "kelvin"
+                                    },
+                                    "last_name": {
+                                        "type": "string",
+                                        "example": "mukotso"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "format": "email",
+                                        "example": "user@gmail"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "format": "password",
+                                        "example": "password"
+                                    },
+                                    "address": {
+                                        "type": "string",
+                                        "example": "east kenya"
+                                    },
+                                    "phone_number": {
+                                        "type": "number",
+                                        "format": "tel",
+                                        "example": "0776756454"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successfull (Ok)"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "404": {
+                        "description": "Page not found"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
+        "/admin/user-delete/{user_uuid}": {
+            "delete": {
+                "tags": [
+                    "Admin end points"
+                ],
+                "summary": "delete a single user",
+                "description": "admin delete a user account",
+                "operationId": "e5ccb1c752a964125211627c089715a7",
+                "parameters": [
+                    {
+                        "name": "user_uuid",
+                        "in": "path",
+                        "description": "user id",
+                        "required": true
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "Successfull (Ok)"
