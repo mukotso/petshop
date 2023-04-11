@@ -35,7 +35,6 @@ class PostsController extends Controller
             Log::error($e);
             return response(
                 [
-                    [],
                     'message' => 'An error occurred ,Please try again'
                 ]
                 , 500
@@ -63,7 +62,6 @@ class PostsController extends Controller
                 Log::error($e);
                 return response(
                     [
-                        [],
                         'message' => 'An error occurred ,Please try again'
                     ]
                     , 500

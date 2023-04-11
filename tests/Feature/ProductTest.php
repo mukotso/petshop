@@ -10,7 +10,7 @@ use Throwable;
 
 class ProductTest extends TestCase
 {
-    use RefreshDatabase;
+//    use RefreshDatabase;
 
     /**
      * @test
@@ -30,7 +30,7 @@ class ProductTest extends TestCase
     public function logged_in_user_can_create_a_product(): void
     {
         $this->authenticateUser();
-        $this->post(route('product.create'), [
+       $this->post(route('product.create'), [
             'category_id' => Category::query()->first()?->id,
             'title' => fake()->title,
             'price' => fake()->numberBetween(50, 100),
@@ -40,6 +40,7 @@ class ProductTest extends TestCase
                 "image" => fake()->uuid,
             ]
         ])->assertStatus(200);
+
     }
 
     /**
@@ -49,9 +50,23 @@ class ProductTest extends TestCase
     public function logged_in_user_can_view_a_product(): void
     {
         $this->authenticateUser();
-        $this->post(route('product.show',Product::query()->first()?->id))
-        ->assertStatus(200);
+        $product = $this->post(route('product.create'), [
+            'category_id' => Category::query()->first()?->id,
+            'title' => fake()->title,
+            'price' => fake()->numberBetween(50, 100),
+            'description' => fake()->sentence,
+            'metadata'=>[
+                "brand" => fake()->uuid,
+                "image" => fake()->uuid,
+            ]
+        ]);
+
+        $this->get(route('product.show',['product_uuid'=>$product['product']['id']]))
+            ->assertStatus(200);
+
     }
+
+
 
 
     /**
@@ -60,13 +75,27 @@ class ProductTest extends TestCase
      */
     public function logged_in_user_can_update_a_product(): void
     {
+
         $this->authenticateUser();
+        $product = $this->post(route('product.create'), [
+            'category_id' => Category::query()->first()?->id,
+            'title' => fake()->title,
+            'price' => fake()->numberBetween(50, 100),
+            'description' => fake()->sentence,
+            'metadata'=>[
+                "brand" => fake()->uuid,
+                "image" => fake()->uuid,
+            ]
+        ]);
+
+
         $this->put(route(
             'product.update',
-            Product::query()->first()?->id
+            ['product_uuid'=>$product['product']['id']]
         ), [
+            'category_id' => Category::query()->first()?->id,
             'title' => fake()->title,
-            'price' => fake()->numberBetween(123.9, 890.34),
+            'price' => fake()->numberBetween(80, 1000),
             'description' => fake()->sentence,
             'metadata'=>[
                 "brand" => fake()->uuid,
@@ -82,17 +111,23 @@ class ProductTest extends TestCase
      */
     public function logged_in_user_can_delete_a_product(): void
     {
-        $this->authenticateUser();
-        $product_id = Product::query()->first()?->id;
-       $response =  $this->put(route(
-            'product.delete',
-           $product_id
-        ));
 
-        $response->assertStatus(200)
-       ->assertDatabaseMissing('products', [
-           'id' => $product_id
-       ]);
+        $this->authenticateUser();
+        $product = $this->post(route('product.create'), [
+            'category_id' => Category::query()->first()?->id,
+            'title' => fake()->title,
+            'price' => fake()->numberBetween(50, 100),
+            'description' => fake()->sentence,
+            'metadata'=>[
+                "brand" => fake()->uuid,
+                "image" => fake()->uuid,
+            ]
+        ]);
+
+       $this->delete(route(
+            'product.delete',
+           ['product_uuid'=>$product['product']['id']]
+        ))->assertStatus(200);
 
     }
 

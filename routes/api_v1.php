@@ -79,9 +79,9 @@ Route::group(['middleware' => ['json.response']], function () {
 
 //products  routes
     Route::get('products', [ProductsController::class, 'index'])->name('products.index');
-    Route::post('product/create', [ProductsController::class, 'create'])->name('products.create');
-    Route::get('product/{product_uuid}', [ProductsController::class, 'show'])->name('products.show');
-    Route::put('product/{product_uuid}', [ProductsController::class, 'update'])->name('products.update');
-    Route::delete('product/{product_uuid}', [ProductsController::class, 'destroy'])->name('products.delete');
+    Route::post('product/create', [ProductsController::class, 'create'])->name('product.create');
+    Route::get('product/{product_uuid}', [ProductsController::class, 'show'])->name('product.show');
+    Route::put('product/{product_uuid}', [ProductsController::class, 'update'])->name('product.update');
+    Route::delete('product/{product_uuid}', [ProductsController::class, 'destroy'])->name('product.delete');
 
 });

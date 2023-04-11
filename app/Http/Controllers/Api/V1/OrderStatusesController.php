@@ -37,7 +37,6 @@ class OrderStatusesController extends Controller
             Log::error($e);
             return response(
                 [
-                    [],
                     'message' => 'An error occurred ,Please try again'
                 ]
                 , 500
@@ -51,11 +50,11 @@ class OrderStatusesController extends Controller
     public function create(OrderStatusesRequest $request)
     {
         try {
-             $this->orderStatusRepository->createOrderStatus($request->all());
+            $orderStatus = $this->orderStatusRepository->createOrderStatus($request->all());
 
             return response(
                 [
-                    [],
+                    'orderStatus' => new OrderStatusResource($orderStatus),
                     'message' => 'Order statuses added successfully'
                 ]
                 , 200
@@ -65,7 +64,6 @@ class OrderStatusesController extends Controller
             Log::error($e);
             return response(
                 [
-                    [],
                     'message' => 'An error occurred ,Please try again'
                 ]
                 , 500
@@ -80,11 +78,11 @@ class OrderStatusesController extends Controller
     public function show($order_status_uuid)
     {
         try {
-            $order = $this->orderStatusRepository->showOrderStatusDetails($order_status_uuid);
+            $orderStatus = $this->orderStatusRepository->showOrderStatusDetails($order_status_uuid);
 
             return response(
                 [
-                    'order' => new OrderStatusResource($order),
+                    'orderStatus' => new OrderStatusResource($orderStatus),
                     'message' => 'order status fetched successfully'
                 ]
                 , 200
@@ -94,7 +92,6 @@ class OrderStatusesController extends Controller
             Log::error($e);
             return response(
                 [
-                    [],
                     'message' => 'An error occurred ,Please try again'
                 ]
                 , 500
@@ -113,7 +110,6 @@ class OrderStatusesController extends Controller
             $this->orderStatusRepository->updateOrderStatusDetails($request->all(), $order_status_uuid);
             return response(
                 [
-                    [],
                     'message' => 'order status details updated successfully'
                 ]
                 , 200
@@ -123,7 +119,6 @@ class OrderStatusesController extends Controller
             Log::error($e);
             return response(
                 [
-                    [],
                     'message' => 'An error occurred ,Please try again'
                 ]
                 , 500
@@ -141,7 +136,6 @@ class OrderStatusesController extends Controller
 
             return response(
                 [
-                    [],
                     'message' => 'order status deleted successfully'
                 ]
                 , 200
@@ -151,7 +145,6 @@ class OrderStatusesController extends Controller
             Log::error($e);
             return response(
                 [
-                    [],
                     'message' => 'An error occurred ,Please try again'
                 ]
                 , 500

@@ -52,11 +52,11 @@ class ProductsController extends Controller
     public function create(ProductsRequest $request)
     {
         try {
-            $this->productRepository->createProduct($request->all());
+           $product = $this->productRepository->createProduct($request->all());
 
             return response(
                 [
-                    [],
+                    'product' => new ProductResource($product),
                     'message' => 'product created successfully'
                 ]
                 , 200
