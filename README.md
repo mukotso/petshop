@@ -71,18 +71,24 @@ Admin Password: admin
 
 
 
-## SWAGGER DOCUMENTATION
+## Swagger Documentation
 View the swagger documentation in below url
 [Petshop Documentation](http://localhost:8082/api/petshop-documentation)
 
 
 
-## Running Test
+## Testing
 
 Before running test, I recommend running your seeders for accurate test result.
 
-Running tests
+## Running tests
 Inside your container run this command
 ```bash
 php artisan test
 ```
+
+## Currency Exchange Package
+I created the currency exchange package you can view it here
+https://github.com/mukotso/currency-exchange
+
+
